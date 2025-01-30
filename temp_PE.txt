@@ -1,0 +1,1968 @@
+{
+    "name": "NIFTY30JAN25P23250",
+    "token": "44235",
+    "data": [
+        {
+            "time": "2025-01-30 11:50:27",
+            "lp": 61.25,
+            "lp_change": 0,
+            "lp_change_per": 0,
+            "v": 106083050.0,
+            "v_change": 106083050.0,
+            "v_change_per": 0
+        },
+        {
+            "time": "2025-01-30 11:50:28",
+            "lp": 61.8,
+            "lp_change": 0.55,
+            "lp_change_per": 0.9,
+            "v": 106083050.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:28",
+            "lp": 61.6,
+            "lp_change": -0.2,
+            "lp_change_per": -0.32,
+            "v": 106152125.0,
+            "v_change": 69075.0,
+            "v_change_per": 0.07
+        },
+        {
+            "time": "2025-01-30 11:50:29",
+            "lp": 62.2,
+            "lp_change": 0.6,
+            "lp_change_per": 0.97,
+            "v": 106152125.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:30",
+            "lp": 61.1,
+            "lp_change": -1.1,
+            "lp_change_per": -1.77,
+            "v": 106222475.0,
+            "v_change": 70350.0,
+            "v_change_per": 0.07
+        },
+        {
+            "time": "2025-01-30 11:50:30",
+            "lp": 60.8,
+            "lp_change": -0.3,
+            "lp_change_per": -0.49,
+            "v": 106222475.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:31",
+            "lp": 61.4,
+            "lp_change": 0.6,
+            "lp_change_per": 0.99,
+            "v": 106222475.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:31",
+            "lp": 61.3,
+            "lp_change": -0.1,
+            "lp_change_per": -0.16,
+            "v": 106268725.0,
+            "v_change": 46250.0,
+            "v_change_per": 0.04
+        },
+        {
+            "time": "2025-01-30 11:50:32",
+            "lp": 61.1,
+            "lp_change": -0.2,
+            "lp_change_per": -0.33,
+            "v": 106268725.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:33",
+            "lp": 60.65,
+            "lp_change": -0.45,
+            "lp_change_per": -0.74,
+            "v": 106268725.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:33",
+            "lp": 60.2,
+            "lp_change": -0.45,
+            "lp_change_per": -0.74,
+            "v": 106293750.0,
+            "v_change": 25025.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:50:34",
+            "lp": 60.25,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 106293750.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:35",
+            "lp": 60.55,
+            "lp_change": 0.3,
+            "lp_change_per": 0.5,
+            "v": 106325975.0,
+            "v_change": 32225.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:50:35",
+            "lp": 60.6,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 106325975.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:36",
+            "lp": 60.45,
+            "lp_change": -0.15,
+            "lp_change_per": -0.25,
+            "v": 106346550.0,
+            "v_change": 20575.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:50:37",
+            "lp": 60.25,
+            "lp_change": -0.2,
+            "lp_change_per": -0.33,
+            "v": 106346550.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:38",
+            "lp": 60.2,
+            "lp_change": -0.05,
+            "lp_change_per": -0.08,
+            "v": 106346550.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:38",
+            "lp": 59.4,
+            "lp_change": -0.8,
+            "lp_change_per": -1.33,
+            "v": 106387200.0,
+            "v_change": 40650.0,
+            "v_change_per": 0.04
+        },
+        {
+            "time": "2025-01-30 11:50:39",
+            "lp": 59.45,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 106387200.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:40",
+            "lp": 58.8,
+            "lp_change": -0.65,
+            "lp_change_per": -1.09,
+            "v": 106416225.0,
+            "v_change": 29025.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:50:40",
+            "lp": 58.9,
+            "lp_change": 0.1,
+            "lp_change_per": 0.17,
+            "v": 106416225.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:41",
+            "lp": 59.15,
+            "lp_change": 0.25,
+            "lp_change_per": 0.42,
+            "v": 106416225.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:41",
+            "lp": 59.0,
+            "lp_change": -0.15,
+            "lp_change_per": -0.25,
+            "v": 106435925.0,
+            "v_change": 19700.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:50:42",
+            "lp": 59.3,
+            "lp_change": 0.3,
+            "lp_change_per": 0.51,
+            "v": 106435925.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:43",
+            "lp": 59.5,
+            "lp_change": 0.2,
+            "lp_change_per": 0.34,
+            "v": 106435925.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:43",
+            "lp": 59.35,
+            "lp_change": -0.15,
+            "lp_change_per": -0.25,
+            "v": 106453725.0,
+            "v_change": 17800.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:50:44",
+            "lp": 59.8,
+            "lp_change": 0.45,
+            "lp_change_per": 0.76,
+            "v": 106453725.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:45",
+            "lp": 60.0,
+            "lp_change": 0.2,
+            "lp_change_per": 0.33,
+            "v": 106474025.0,
+            "v_change": 20300.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:50:45",
+            "lp": 60.1,
+            "lp_change": 0.1,
+            "lp_change_per": 0.17,
+            "v": 106474025.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:46",
+            "lp": 60.35,
+            "lp_change": 0.25,
+            "lp_change_per": 0.42,
+            "v": 106474025.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:46",
+            "lp": 60.75,
+            "lp_change": 0.4,
+            "lp_change_per": 0.66,
+            "v": 106503225.0,
+            "v_change": 29200.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:50:47",
+            "lp": 60.65,
+            "lp_change": -0.1,
+            "lp_change_per": -0.16,
+            "v": 106503225.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:48",
+            "lp": 61.1,
+            "lp_change": 0.45,
+            "lp_change_per": 0.74,
+            "v": 106503225.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:48",
+            "lp": 60.8,
+            "lp_change": -0.3,
+            "lp_change_per": -0.49,
+            "v": 106521500.0,
+            "v_change": 18275.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:50:49",
+            "lp": 61.25,
+            "lp_change": 0.45,
+            "lp_change_per": 0.74,
+            "v": 106521500.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:50",
+            "lp": 61.5,
+            "lp_change": 0.25,
+            "lp_change_per": 0.41,
+            "v": 106542300.0,
+            "v_change": 20800.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:50:50",
+            "lp": 61.55,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 106542300.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:51",
+            "lp": 62.4,
+            "lp_change": 0.85,
+            "lp_change_per": 1.38,
+            "v": 106542300.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:51",
+            "lp": 62.8,
+            "lp_change": 0.4,
+            "lp_change_per": 0.64,
+            "v": 106571375.0,
+            "v_change": 29075.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:50:52",
+            "lp": 62.95,
+            "lp_change": 0.15,
+            "lp_change_per": 0.24,
+            "v": 106571375.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:53",
+            "lp": 63.85,
+            "lp_change": 0.9,
+            "lp_change_per": 1.43,
+            "v": 106571375.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:53",
+            "lp": 63.75,
+            "lp_change": -0.1,
+            "lp_change_per": -0.16,
+            "v": 106619050.0,
+            "v_change": 47675.0,
+            "v_change_per": 0.04
+        },
+        {
+            "time": "2025-01-30 11:50:54",
+            "lp": 63.15,
+            "lp_change": -0.6,
+            "lp_change_per": -0.94,
+            "v": 106619050.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:55",
+            "lp": 64.85,
+            "lp_change": 1.7,
+            "lp_change_per": 2.69,
+            "v": 106664900.0,
+            "v_change": 45850.0,
+            "v_change_per": 0.04
+        },
+        {
+            "time": "2025-01-30 11:50:55",
+            "lp": 65.2,
+            "lp_change": 0.35,
+            "lp_change_per": 0.54,
+            "v": 106664900.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:56",
+            "lp": 64.7,
+            "lp_change": -0.5,
+            "lp_change_per": -0.77,
+            "v": 106664900.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:56",
+            "lp": 65.05,
+            "lp_change": 0.35,
+            "lp_change_per": 0.54,
+            "v": 106714275.0,
+            "v_change": 49375.0,
+            "v_change_per": 0.05
+        },
+        {
+            "time": "2025-01-30 11:50:57",
+            "lp": 65.15,
+            "lp_change": 0.1,
+            "lp_change_per": 0.15,
+            "v": 106714275.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:58",
+            "lp": 63.8,
+            "lp_change": -1.35,
+            "lp_change_per": -2.07,
+            "v": 106714275.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:50:58",
+            "lp": 63.5,
+            "lp_change": -0.3,
+            "lp_change_per": -0.47,
+            "v": 106759450.0,
+            "v_change": 45175.0,
+            "v_change_per": 0.04
+        },
+        {
+            "time": "2025-01-30 11:50:59",
+            "lp": 63.75,
+            "lp_change": 0.25,
+            "lp_change_per": 0.39,
+            "v": 106759450.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:00",
+            "lp": 64.25,
+            "lp_change": 0.5,
+            "lp_change_per": 0.78,
+            "v": 106790050.0,
+            "v_change": 30600.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:51:00",
+            "lp": 64.55,
+            "lp_change": 0.3,
+            "lp_change_per": 0.47,
+            "v": 106790050.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:01",
+            "lp": 64.35,
+            "lp_change": -0.2,
+            "lp_change_per": -0.31,
+            "v": 106790050.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:01",
+            "lp": 64.65,
+            "lp_change": 0.3,
+            "lp_change_per": 0.47,
+            "v": 106822275.0,
+            "v_change": 32225.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:51:02",
+            "lp": 64.5,
+            "lp_change": -0.15,
+            "lp_change_per": -0.23,
+            "v": 106822275.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:03",
+            "lp": 65.35,
+            "lp_change": 0.85,
+            "lp_change_per": 1.32,
+            "v": 106822275.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:03",
+            "lp": 65.25,
+            "lp_change": -0.1,
+            "lp_change_per": -0.15,
+            "v": 106850825.0,
+            "v_change": 28550.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:51:04",
+            "lp": 64.5,
+            "lp_change": -0.75,
+            "lp_change_per": -1.15,
+            "v": 106850825.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:05",
+            "lp": 64.65,
+            "lp_change": 0.15,
+            "lp_change_per": 0.23,
+            "v": 106877900.0,
+            "v_change": 27075.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:51:05",
+            "lp": 64.85,
+            "lp_change": 0.2,
+            "lp_change_per": 0.31,
+            "v": 106877900.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:06",
+            "lp": 64.25,
+            "lp_change": -0.6,
+            "lp_change_per": -0.93,
+            "v": 106877900.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:06",
+            "lp": 64.2,
+            "lp_change": -0.05,
+            "lp_change_per": -0.08,
+            "v": 106907400.0,
+            "v_change": 29500.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:51:07",
+            "lp": 64.45,
+            "lp_change": 0.25,
+            "lp_change_per": 0.39,
+            "v": 106907400.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:08",
+            "lp": 64.2,
+            "lp_change": -0.25,
+            "lp_change_per": -0.39,
+            "v": 106907400.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:08",
+            "lp": 64.2,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 106928100.0,
+            "v_change": 20700.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:51:09",
+            "lp": 64.0,
+            "lp_change": -0.2,
+            "lp_change_per": -0.31,
+            "v": 106928100.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:10",
+            "lp": 62.8,
+            "lp_change": -1.2,
+            "lp_change_per": -1.88,
+            "v": 106975950.0,
+            "v_change": 47850.0,
+            "v_change_per": 0.04
+        },
+        {
+            "time": "2025-01-30 11:51:11",
+            "lp": 62.7,
+            "lp_change": -0.1,
+            "lp_change_per": -0.16,
+            "v": 106975950.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:11",
+            "lp": 62.25,
+            "lp_change": -0.45,
+            "lp_change_per": -0.72,
+            "v": 107016650.0,
+            "v_change": 40700.0,
+            "v_change_per": 0.04
+        },
+        {
+            "time": "2025-01-30 11:51:12",
+            "lp": 61.8,
+            "lp_change": -0.45,
+            "lp_change_per": -0.72,
+            "v": 107016650.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:13",
+            "lp": 62.25,
+            "lp_change": 0.45,
+            "lp_change_per": 0.73,
+            "v": 107016650.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:13",
+            "lp": 62.65,
+            "lp_change": 0.4,
+            "lp_change_per": 0.64,
+            "v": 107049250.0,
+            "v_change": 32600.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:51:14",
+            "lp": 62.3,
+            "lp_change": -0.35,
+            "lp_change_per": -0.56,
+            "v": 107049250.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:15",
+            "lp": 62.05,
+            "lp_change": -0.25,
+            "lp_change_per": -0.4,
+            "v": 107083400.0,
+            "v_change": 34150.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:51:15",
+            "lp": 62.15,
+            "lp_change": 0.1,
+            "lp_change_per": 0.16,
+            "v": 107083400.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:16",
+            "lp": 62.2,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 107083400.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:16",
+            "lp": 61.9,
+            "lp_change": -0.3,
+            "lp_change_per": -0.48,
+            "v": 107113900.0,
+            "v_change": 30500.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:51:17",
+            "lp": 61.5,
+            "lp_change": -0.4,
+            "lp_change_per": -0.65,
+            "v": 107113900.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:18",
+            "lp": 61.95,
+            "lp_change": 0.45,
+            "lp_change_per": 0.73,
+            "v": 107113900.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:18",
+            "lp": 61.9,
+            "lp_change": -0.05,
+            "lp_change_per": -0.08,
+            "v": 107138600.0,
+            "v_change": 24700.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:51:19",
+            "lp": 62.3,
+            "lp_change": 0.4,
+            "lp_change_per": 0.65,
+            "v": 107138600.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:20",
+            "lp": 61.1,
+            "lp_change": -1.2,
+            "lp_change_per": -1.93,
+            "v": 107158325.0,
+            "v_change": 19725.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:51:20",
+            "lp": 61.25,
+            "lp_change": 0.15,
+            "lp_change_per": 0.25,
+            "v": 107158325.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:21",
+            "lp": 61.5,
+            "lp_change": 0.25,
+            "lp_change_per": 0.41,
+            "v": 107158325.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:21",
+            "lp": 61.95,
+            "lp_change": 0.45,
+            "lp_change_per": 0.73,
+            "v": 107183375.0,
+            "v_change": 25050.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:51:22",
+            "lp": 62.05,
+            "lp_change": 0.1,
+            "lp_change_per": 0.16,
+            "v": 107183375.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:23",
+            "lp": 62.6,
+            "lp_change": 0.55,
+            "lp_change_per": 0.89,
+            "v": 107183375.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:23",
+            "lp": 62.6,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 107192650.0,
+            "v_change": 9275.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:51:24",
+            "lp": 61.95,
+            "lp_change": -0.65,
+            "lp_change_per": -1.04,
+            "v": 107192650.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:25",
+            "lp": 62.4,
+            "lp_change": 0.45,
+            "lp_change_per": 0.73,
+            "v": 107209750.0,
+            "v_change": 17100.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:51:26",
+            "lp": 63.35,
+            "lp_change": 0.95,
+            "lp_change_per": 1.52,
+            "v": 107209750.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:26",
+            "lp": 63.25,
+            "lp_change": -0.1,
+            "lp_change_per": -0.16,
+            "v": 107221500.0,
+            "v_change": 11750.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:51:27",
+            "lp": 63.45,
+            "lp_change": 0.2,
+            "lp_change_per": 0.32,
+            "v": 107221500.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:28",
+            "lp": 63.3,
+            "lp_change": -0.15,
+            "lp_change_per": -0.24,
+            "v": 107221500.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:28",
+            "lp": 63.25,
+            "lp_change": -0.05,
+            "lp_change_per": -0.08,
+            "v": 107235025.0,
+            "v_change": 13525.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:51:29",
+            "lp": 63.15,
+            "lp_change": -0.1,
+            "lp_change_per": -0.16,
+            "v": 107235025.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:30",
+            "lp": 63.4,
+            "lp_change": 0.25,
+            "lp_change_per": 0.4,
+            "v": 107244475.0,
+            "v_change": 9450.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:51:31",
+            "lp": 63.5,
+            "lp_change": 0.1,
+            "lp_change_per": 0.16,
+            "v": 107244475.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:31",
+            "lp": 63.65,
+            "lp_change": 0.15,
+            "lp_change_per": 0.24,
+            "v": 107254300.0,
+            "v_change": 9825.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:51:33",
+            "lp": 64.45,
+            "lp_change": 0.8,
+            "lp_change_per": 1.26,
+            "v": 107254300.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:33",
+            "lp": 64.4,
+            "lp_change": -0.05,
+            "lp_change_per": -0.08,
+            "v": 107296900.0,
+            "v_change": 42600.0,
+            "v_change_per": 0.04
+        },
+        {
+            "time": "2025-01-30 11:51:34",
+            "lp": 64.8,
+            "lp_change": 0.4,
+            "lp_change_per": 0.62,
+            "v": 107296900.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:35",
+            "lp": 64.9,
+            "lp_change": 0.1,
+            "lp_change_per": 0.15,
+            "v": 107339825.0,
+            "v_change": 42925.0,
+            "v_change_per": 0.04
+        },
+        {
+            "time": "2025-01-30 11:51:35",
+            "lp": 64.75,
+            "lp_change": -0.15,
+            "lp_change_per": -0.23,
+            "v": 107339825.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:36",
+            "lp": 64.55,
+            "lp_change": -0.2,
+            "lp_change_per": -0.31,
+            "v": 107339825.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:36",
+            "lp": 63.65,
+            "lp_change": -0.9,
+            "lp_change_per": -1.39,
+            "v": 107387575.0,
+            "v_change": 47750.0,
+            "v_change_per": 0.04
+        },
+        {
+            "time": "2025-01-30 11:51:37",
+            "lp": 64.05,
+            "lp_change": 0.4,
+            "lp_change_per": 0.63,
+            "v": 107387575.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:38",
+            "lp": 64.2,
+            "lp_change": 0.15,
+            "lp_change_per": 0.23,
+            "v": 107387575.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:38",
+            "lp": 63.9,
+            "lp_change": -0.3,
+            "lp_change_per": -0.47,
+            "v": 107421800.0,
+            "v_change": 34225.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:51:39",
+            "lp": 64.6,
+            "lp_change": 0.7,
+            "lp_change_per": 1.1,
+            "v": 107421800.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:40",
+            "lp": 64.0,
+            "lp_change": -0.6,
+            "lp_change_per": -0.93,
+            "v": 107455250.0,
+            "v_change": 33450.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:51:41",
+            "lp": 64.8,
+            "lp_change": 0.8,
+            "lp_change_per": 1.25,
+            "v": 107455250.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:41",
+            "lp": 65.0,
+            "lp_change": 0.2,
+            "lp_change_per": 0.31,
+            "v": 107470275.0,
+            "v_change": 15025.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:51:42",
+            "lp": 65.05,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 107470275.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:43",
+            "lp": 63.7,
+            "lp_change": -1.35,
+            "lp_change_per": -2.08,
+            "v": 107470275.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:43",
+            "lp": 63.9,
+            "lp_change": 0.2,
+            "lp_change_per": 0.31,
+            "v": 107485525.0,
+            "v_change": 15250.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:51:44",
+            "lp": 64.0,
+            "lp_change": 0.1,
+            "lp_change_per": 0.16,
+            "v": 107485525.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:44",
+            "lp": 64.85,
+            "lp_change": 0.85,
+            "lp_change_per": 1.33,
+            "v": 107506175.0,
+            "v_change": 20650.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:51:46",
+            "lp": 64.6,
+            "lp_change": -0.25,
+            "lp_change_per": -0.39,
+            "v": 107506175.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:46",
+            "lp": 65.0,
+            "lp_change": 0.4,
+            "lp_change_per": 0.62,
+            "v": 107534525.0,
+            "v_change": 28350.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:51:47",
+            "lp": 64.6,
+            "lp_change": -0.4,
+            "lp_change_per": -0.62,
+            "v": 107534525.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:48",
+            "lp": 64.9,
+            "lp_change": 0.3,
+            "lp_change_per": 0.46,
+            "v": 107534525.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:48",
+            "lp": 64.75,
+            "lp_change": -0.15,
+            "lp_change_per": -0.23,
+            "v": 107552350.0,
+            "v_change": 17825.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:51:49",
+            "lp": 64.9,
+            "lp_change": 0.15,
+            "lp_change_per": 0.23,
+            "v": 107552350.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:49",
+            "lp": 65.3,
+            "lp_change": 0.4,
+            "lp_change_per": 0.62,
+            "v": 107571925.0,
+            "v_change": 19575.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:51:50",
+            "lp": 66.15,
+            "lp_change": 0.85,
+            "lp_change_per": 1.3,
+            "v": 107571925.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:51",
+            "lp": 66.7,
+            "lp_change": 0.55,
+            "lp_change_per": 0.83,
+            "v": 107571925.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:51",
+            "lp": 66.8,
+            "lp_change": 0.1,
+            "lp_change_per": 0.15,
+            "v": 107629725.0,
+            "v_change": 57800.0,
+            "v_change_per": 0.05
+        },
+        {
+            "time": "2025-01-30 11:51:53",
+            "lp": 66.65,
+            "lp_change": -0.15,
+            "lp_change_per": -0.22,
+            "v": 107665975.0,
+            "v_change": 36250.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:51:54",
+            "lp": 66.45,
+            "lp_change": -0.2,
+            "lp_change_per": -0.3,
+            "v": 107665975.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:55",
+            "lp": 66.7,
+            "lp_change": 0.25,
+            "lp_change_per": 0.38,
+            "v": 107705075.0,
+            "v_change": 39100.0,
+            "v_change_per": 0.04
+        },
+        {
+            "time": "2025-01-30 11:51:55",
+            "lp": 66.85,
+            "lp_change": 0.15,
+            "lp_change_per": 0.22,
+            "v": 107705075.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:56",
+            "lp": 66.8,
+            "lp_change": -0.05,
+            "lp_change_per": -0.07,
+            "v": 107705075.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:56",
+            "lp": 67.1,
+            "lp_change": 0.3,
+            "lp_change_per": 0.45,
+            "v": 107726000.0,
+            "v_change": 20925.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:51:57",
+            "lp": 67.45,
+            "lp_change": 0.35,
+            "lp_change_per": 0.52,
+            "v": 107726000.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:58",
+            "lp": 66.85,
+            "lp_change": -0.6,
+            "lp_change_per": -0.89,
+            "v": 107726000.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:51:58",
+            "lp": 66.85,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 107750875.0,
+            "v_change": 24875.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:51:59",
+            "lp": 66.8,
+            "lp_change": -0.05,
+            "lp_change_per": -0.07,
+            "v": 107750875.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:00",
+            "lp": 67.05,
+            "lp_change": 0.25,
+            "lp_change_per": 0.37,
+            "v": 107781100.0,
+            "v_change": 30225.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:52:01",
+            "lp": 66.25,
+            "lp_change": -0.8,
+            "lp_change_per": -1.19,
+            "v": 107781100.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:01",
+            "lp": 66.45,
+            "lp_change": 0.2,
+            "lp_change_per": 0.3,
+            "v": 107808950.0,
+            "v_change": 27850.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:52:02",
+            "lp": 67.05,
+            "lp_change": 0.6,
+            "lp_change_per": 0.9,
+            "v": 107808950.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:03",
+            "lp": 66.3,
+            "lp_change": -0.75,
+            "lp_change_per": -1.12,
+            "v": 107808950.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:03",
+            "lp": 66.3,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 107832300.0,
+            "v_change": 23350.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:52:04",
+            "lp": 67.45,
+            "lp_change": 1.15,
+            "lp_change_per": 1.73,
+            "v": 107832300.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:04",
+            "lp": 67.65,
+            "lp_change": 0.2,
+            "lp_change_per": 0.3,
+            "v": 107861750.0,
+            "v_change": 29450.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:52:05",
+            "lp": 67.7,
+            "lp_change": 0.05,
+            "lp_change_per": 0.07,
+            "v": 107861750.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:06",
+            "lp": 67.0,
+            "lp_change": -0.7,
+            "lp_change_per": -1.03,
+            "v": 107861750.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:06",
+            "lp": 67.0,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 107877850.0,
+            "v_change": 16100.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:08",
+            "lp": 66.9,
+            "lp_change": -0.1,
+            "lp_change_per": -0.15,
+            "v": 107877850.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:08",
+            "lp": 66.9,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 107888650.0,
+            "v_change": 10800.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:09",
+            "lp": 66.3,
+            "lp_change": -0.6,
+            "lp_change_per": -0.9,
+            "v": 107899275.0,
+            "v_change": 10625.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:10",
+            "lp": 66.6,
+            "lp_change": 0.3,
+            "lp_change_per": 0.45,
+            "v": 107899275.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:11",
+            "lp": 66.35,
+            "lp_change": -0.25,
+            "lp_change_per": -0.38,
+            "v": 107899275.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:11",
+            "lp": 66.4,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 107919375.0,
+            "v_change": 20100.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:52:12",
+            "lp": 66.9,
+            "lp_change": 0.5,
+            "lp_change_per": 0.75,
+            "v": 107919375.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:13",
+            "lp": 66.55,
+            "lp_change": -0.35,
+            "lp_change_per": -0.52,
+            "v": 107919375.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:13",
+            "lp": 66.6,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 107933650.0,
+            "v_change": 14275.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:14",
+            "lp": 66.25,
+            "lp_change": -0.35,
+            "lp_change_per": -0.53,
+            "v": 107933650.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:14",
+            "lp": 66.25,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 107966325.0,
+            "v_change": 32675.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:52:16",
+            "lp": 66.3,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 107966325.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:16",
+            "lp": 66.5,
+            "lp_change": 0.2,
+            "lp_change_per": 0.3,
+            "v": 107975050.0,
+            "v_change": 8725.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:17",
+            "lp": 65.95,
+            "lp_change": -0.55,
+            "lp_change_per": -0.83,
+            "v": 107975050.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:18",
+            "lp": 66.1,
+            "lp_change": 0.15,
+            "lp_change_per": 0.23,
+            "v": 107975050.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:18",
+            "lp": 66.15,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 107995125.0,
+            "v_change": 20075.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:52:19",
+            "lp": 65.3,
+            "lp_change": -0.85,
+            "lp_change_per": -1.28,
+            "v": 107995125.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:19",
+            "lp": 65.35,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 108020475.0,
+            "v_change": 25350.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:52:20",
+            "lp": 65.75,
+            "lp_change": 0.4,
+            "lp_change_per": 0.61,
+            "v": 108020475.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:21",
+            "lp": 65.85,
+            "lp_change": 0.1,
+            "lp_change_per": 0.15,
+            "v": 108020475.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:21",
+            "lp": 66.0,
+            "lp_change": 0.15,
+            "lp_change_per": 0.23,
+            "v": 108032750.0,
+            "v_change": 12275.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:23",
+            "lp": 65.9,
+            "lp_change": -0.1,
+            "lp_change_per": -0.15,
+            "v": 108032750.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:23",
+            "lp": 65.9,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 108048275.0,
+            "v_change": 15525.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:24",
+            "lp": 65.8,
+            "lp_change": -0.1,
+            "lp_change_per": -0.15,
+            "v": 108048275.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:24",
+            "lp": 65.8,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 108055350.0,
+            "v_change": 7075.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:25",
+            "lp": 65.85,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 108055350.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:26",
+            "lp": 65.55,
+            "lp_change": -0.3,
+            "lp_change_per": -0.46,
+            "v": 108055350.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:26",
+            "lp": 65.5,
+            "lp_change": -0.05,
+            "lp_change_per": -0.08,
+            "v": 108059575.0,
+            "v_change": 4225.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:27",
+            "lp": 65.45,
+            "lp_change": -0.05,
+            "lp_change_per": -0.08,
+            "v": 108059575.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:28",
+            "lp": 65.7,
+            "lp_change": 0.25,
+            "lp_change_per": 0.38,
+            "v": 108059575.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:28",
+            "lp": 65.7,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 108092750.0,
+            "v_change": 33175.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:52:29",
+            "lp": 65.7,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 108118875.0,
+            "v_change": 26125.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:52:30",
+            "lp": 66.2,
+            "lp_change": 0.5,
+            "lp_change_per": 0.76,
+            "v": 108118875.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:31",
+            "lp": 66.25,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 108118875.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:31",
+            "lp": 65.75,
+            "lp_change": -0.5,
+            "lp_change_per": -0.75,
+            "v": 108146425.0,
+            "v_change": 27550.0,
+            "v_change_per": 0.03
+        },
+        {
+            "time": "2025-01-30 11:52:32",
+            "lp": 65.9,
+            "lp_change": 0.15,
+            "lp_change_per": 0.23,
+            "v": 108146425.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:33",
+            "lp": 66.2,
+            "lp_change": 0.3,
+            "lp_change_per": 0.46,
+            "v": 108146425.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:33",
+            "lp": 66.2,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 108159125.0,
+            "v_change": 12700.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:34",
+            "lp": 65.2,
+            "lp_change": -1.0,
+            "lp_change_per": -1.51,
+            "v": 108159125.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:34",
+            "lp": 64.75,
+            "lp_change": -0.45,
+            "lp_change_per": -0.69,
+            "v": 108172200.0,
+            "v_change": 13075.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:35",
+            "lp": 65.1,
+            "lp_change": 0.35,
+            "lp_change_per": 0.54,
+            "v": 108172200.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:36",
+            "lp": 64.8,
+            "lp_change": -0.3,
+            "lp_change_per": -0.46,
+            "v": 108172200.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:36",
+            "lp": 64.65,
+            "lp_change": -0.15,
+            "lp_change_per": -0.23,
+            "v": 108193050.0,
+            "v_change": 20850.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:52:37",
+            "lp": 65.0,
+            "lp_change": 0.35,
+            "lp_change_per": 0.54,
+            "v": 108193050.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:38",
+            "lp": 65.3,
+            "lp_change": 0.3,
+            "lp_change_per": 0.46,
+            "v": 108193050.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:38",
+            "lp": 65.25,
+            "lp_change": -0.05,
+            "lp_change_per": -0.08,
+            "v": 108207925.0,
+            "v_change": 14875.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:39",
+            "lp": 65.2,
+            "lp_change": -0.05,
+            "lp_change_per": -0.08,
+            "v": 108207925.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:39",
+            "lp": 65.25,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 108217275.0,
+            "v_change": 9350.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:40",
+            "lp": 65.4,
+            "lp_change": 0.15,
+            "lp_change_per": 0.23,
+            "v": 108217275.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:41",
+            "lp": 65.9,
+            "lp_change": 0.5,
+            "lp_change_per": 0.76,
+            "v": 108217275.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:41",
+            "lp": 65.9,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 108224200.0,
+            "v_change": 6925.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:42",
+            "lp": 66.2,
+            "lp_change": 0.3,
+            "lp_change_per": 0.46,
+            "v": 108224200.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:43",
+            "lp": 65.7,
+            "lp_change": -0.5,
+            "lp_change_per": -0.76,
+            "v": 108224200.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:43",
+            "lp": 65.6,
+            "lp_change": -0.1,
+            "lp_change_per": -0.15,
+            "v": 108242225.0,
+            "v_change": 18025.0,
+            "v_change_per": 0.02
+        },
+        {
+            "time": "2025-01-30 11:52:44",
+            "lp": 65.25,
+            "lp_change": -0.35,
+            "lp_change_per": -0.53,
+            "v": 108242225.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:44",
+            "lp": 64.9,
+            "lp_change": -0.35,
+            "lp_change_per": -0.54,
+            "v": 108257600.0,
+            "v_change": 15375.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:45",
+            "lp": 65.05,
+            "lp_change": 0.15,
+            "lp_change_per": 0.23,
+            "v": 108257600.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:46",
+            "lp": 65.5,
+            "lp_change": 0.45,
+            "lp_change_per": 0.69,
+            "v": 108257600.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:46",
+            "lp": 65.45,
+            "lp_change": -0.05,
+            "lp_change_per": -0.08,
+            "v": 108269225.0,
+            "v_change": 11625.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:47",
+            "lp": 65.95,
+            "lp_change": 0.5,
+            "lp_change_per": 0.76,
+            "v": 108269225.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:48",
+            "lp": 66.0,
+            "lp_change": 0.05,
+            "lp_change_per": 0.08,
+            "v": 108269225.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:48",
+            "lp": 66.0,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 108274200.0,
+            "v_change": 4975.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:49",
+            "lp": 66.5,
+            "lp_change": 0.5,
+            "lp_change_per": 0.76,
+            "v": 108274200.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:49",
+            "lp": 66.5,
+            "lp_change": 0.0,
+            "lp_change_per": 0.0,
+            "v": 108284350.0,
+            "v_change": 10150.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:50",
+            "lp": 66.4,
+            "lp_change": -0.1,
+            "lp_change_per": -0.15,
+            "v": 108284350.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:51",
+            "lp": 66.5,
+            "lp_change": 0.1,
+            "lp_change_per": 0.15,
+            "v": 108284350.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        },
+        {
+            "time": "2025-01-30 11:52:51",
+            "lp": 66.6,
+            "lp_change": 0.1,
+            "lp_change_per": 0.15,
+            "v": 108290600.0,
+            "v_change": 6250.0,
+            "v_change_per": 0.01
+        },
+        {
+            "time": "2025-01-30 11:52:52",
+            "lp": 66.35,
+            "lp_change": -0.25,
+            "lp_change_per": -0.38,
+            "v": 108290600.0,
+            "v_change": 0.0,
+            "v_change_per": 0.0
+        }
+    ]
+}

@@ -2,6 +2,7 @@ import requests
 import logging
 import hashlib
 import json
+import pandas as pd
 import os
 import websocket
 import time
@@ -121,24 +122,33 @@ def check_token_file_exists():
 def sha256_encode(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
+
+def display_latest_records():
+    """ Display latest_records in a table format """
+    if not latest_records:
+        print("\nNo records to display.\n")
+        return
+    
+    os.system('cls' if os.name == 'nt' else 'clear')  # Clear the console for a fresh display
+    
+    df = pd.DataFrame(latest_records)
+    df['time'] = df['time'].dt.strftime('%H:%M:%S')  # Format time for better readability
+    
+    print(df.to_string(index=False, justify='center'))
+
+def placeOrder():
+    """ Placeholder for placing an order """
+    logging.info("Placing Order... 🚀")
+
 def on_message(ws, message):
     try:
         # Parse the incoming message
         data = json.loads(message)
         logging.info(f"WebSocket Data: {data}")
-        
-        # Get the current volume from the message (assuming the message has a 'v' field)
-        current_volume = data.get('v')
-        current_lp = data.get('lp')  # Assuming 'lp' is the last price field
 
-            #if 'v' in data or 'lp' in data:
-
-        #print(data)
-        # Check if the message is an acknowledgment of authentication
+        # Handle authentication acknowledgment
         if data.get("t") == "ck" and data.get("s") == "OK":
             logging.info("Authentication successful.")
-            
-            # Send subscription message
             subscribe_message = {
                 "uid": "FN105570",  # Replace with dynamic UID if needed
                 "actid": "FN105570",  # Replace with dynamic account ID if needed
@@ -149,57 +159,107 @@ def on_message(ws, message):
             }
             ws.send(json.dumps(subscribe_message))
             logging.info(f"Subscribed to tokens: {ws.tokens}")
-            
-        if 'v' in data or 'lp' in data:
-            if current_volume is None or current_lp is None:
-                logging.warning("Volume or LP is missing in the message. Skipping.")
-                return
-            
-            # Extract previous_volume from the latest record (last record in latest_records)
-            if latest_records:
-                previous_volume = latest_records[-1].get('v')
-                previous_lp= latest_records[-1].get('lp')
-            else:
-                previous_volume = None
-                previous_lp = None
-            
-            # If previous_volume is None, it's the first record, so skip comparison
-            if previous_volume is None:
-                logging.info("First message received. Skipping volume change comparison.")
-                latest_records.append(data)
-                return
-            
-            # Calculate volume change percentage if previous_volume is available
-            volume_change_percentage = (current_volume - previous_volume) / previous_volume * 100
-            
-            # Condition 1: Volume change percentage > 30%
-            if volume_change_percentage > 30:
-                logging.info(f"Volume change > 30%. Current volume: {current_volume}, Previous volume: {previous_volume}")
-                # Call placeOrder or any other action here
-            
-            # Condition 2: Current volume > 30% of the average volume of the last 15 minutes
-            if len(latest_records) > 15:
-                avg_volume = sum(record.get('v', 0) for record in latest_records) / len(latest_records)
-                if current_volume > 0.3 * avg_volume:
-                    logging.info(f"Current volume is greater than 30% of average volume in last 15 minutes.")
-                    # Call placeOrder or any other action here
-            
-            # Condition 3: Change in LP is greater than 4%
-            if previous_lp is not None and abs((current_lp - previous_lp) / previous_lp * 100) > 4:
-                logging.info(f"Change in LP is greater than 4%. Current LP: {current_lp}, Previous LP: {previous_lp}")
-                # Call placeOrder or any other action here
-            
-            # Append the current data to the latest_records
-            latest_records.append(data)
-            
-            # Remove records older than the time window (15 minutes)
-            current_time = datetime.now()
-            while latest_records and latest_records[0]['ft'] < current_time - time_window:
-                latest_records.popleft()
+            return
+        
+        # Convert fields to appropriate types
+        try:
+            current_volume = data.get('v')  # Get volume (None if not present)
+            current_lp = float(data.get('lp', 0))  # Default to 0 if not present
+            record_time = datetime.fromtimestamp(int(data['ft']))  # Convert Unix timestamp to datetime
+        except (ValueError, TypeError) as e:
+            logging.error(f"Invalid data format: {e}")
+            return
+
+        # Extract previous values if available
+        previous_record = latest_records[-1] if latest_records else None
+        previous_volume = previous_record['v'] if previous_record else None
+        previous_lp = previous_record['lp'] if previous_record else 0
+
+        # Use actual volume if present; otherwise, copy previous volume
+        if current_volume is None or current_volume == 0:
+            current_volume = previous_volume  # Copy only if missing
+        else:
+            current_volume = float(current_volume)  # Convert valid volume
+
+        # Calculate changes
+        delta_v = current_volume - previous_volume if previous_volume is not None else 0
+        delta_v_percent = (delta_v / previous_volume * 100) if previous_volume else 0
+
+        delta_lp = current_lp - previous_lp if previous_lp else 0
+        delta_lp_percent = (delta_lp / previous_lp * 100) if previous_lp else 0
+
+        # Check if a record with the same timestamp exists
+        merged = False
+        for record in latest_records:
+            if record['time'] == record_time:
+                # Merge missing fields
+                if record['v'] is None or record['v'] == 0:
+                    record['v'] = current_volume  # Copy only if missing
+                if record['lp'] == 0:
+                    record['lp'] = current_lp
+                logging.info(f"Merged record: {record}")
+                merged = True
+                break
+
+        if not merged:
+            # Append new record only if it wasn't merged
+            latest_records.append({
+                'time': record_time, 
+                'v': current_volume, 
+                'Δv': delta_v, 
+                'Δv%': round(delta_v_percent, 2), 
+                'lp': current_lp, 
+                'Δlp': round(delta_lp, 2), 
+                'Δlp%': round(delta_lp_percent, 2)
+            })
+            print({
+                'time': record_time, 
+                'v': current_volume, 
+                'lp': current_lp, 
+                'Δv%': round(delta_v_percent, 2), 
+                'Δlp%': round(delta_lp_percent, 2)
+            })
+
+        # Skip first message for comparisons
+        if previous_volume is None:
+            logging.info("First message received. Skipping volume and LP comparisons.")
+            #display_latest_records()  # Refresh table
+            return
+
+        # Condition 1: Volume change percentage > 30%
+        if previous_volume and previous_volume > 0:  # Avoid division by zero
+            #print(previous_volume,delta_lp_percent)
+            #if delta_v_percent > 0.2 and delta_v_percent < 10 and delta_lp_percent > 1 and delta_lp_percent < 20:
+            if delta_v_percent > 0.2 and delta_v_percent < 10 and delta_lp_percent > 2 and delta_lp_percent < 20:
+                logging.info(f"Volume change % > 0.2 and lp change % > 2. Current: {current_volume}, Previous: {previous_volume}")
+                print('########################################################################################## hurry',record_time,current_lp)
+                placeOrder()
+
+            '''
+        # Condition 2: Current volume > 30% of the average volume of the last 15 minutes
+        if len(latest_records) > 15:
+            avg_volume = sum(float(record['v']) for record in latest_records if record['v'] is not None) / len(latest_records)
+            if current_volume > 1.3 * avg_volume:
+                logging.info(f"Current volume > 30% of avg volume in last 15 minutes. Avg: {avg_volume}, Current: {current_volume}")
+                placeOrder()
+
+        # Condition 3: Change in LP is greater than 4%
+        if previous_lp > 0:  # Avoid division by zero
+            if abs(delta_lp_percent) > 4:
+                logging.info(f"Change in LP > 4%. Current: {current_lp}, Previous: {previous_lp}")
+                placeOrder()
+        '''
+        # Remove records older than the time window (15 minutes)
+        current_time = datetime.now()
+        while latest_records and latest_records[0]['time'] < current_time - time_window:
+            latest_records.popleft()
+
+        #display_latest_records()  # Refresh table after updating records
 
     except json.JSONDecodeError as e:
         logging.error(f"Failed to parse WebSocket message: {e}")
-
+    except Exception as e:
+        logging.error(f"Unexpected error: {e}")
 
 def on_error(ws, error):
     """
@@ -384,8 +444,8 @@ if __name__ == "__main__":
             print(f"Using existing token: {susertoken}")
 
 
-            tsym_ce = "NIFTY30JAN25C22600"  # Call Option
-            tsym_pe = "NIFTY30JAN25P22600"  # Put Option
+            tsym_ce = "NIFTY30JAN25C23050"  # Call Option
+            tsym_pe = "NIFTY30JAN25C22950"  # Put Option
 
             # Fetch tokens for CE and PE
             token_ce = get_token_for_tsym(tsym_ce,susertoken)
@@ -399,13 +459,11 @@ if __name__ == "__main__":
                 logging.info(f"Token for {tsym_pe}: {token_pe}")
 
                 # Start WebSocket connection
-                #tokens_to_subscribe = f"NFO|{token_ce}#NFO|{token_pe}"
-                tokens_to_subscribe = "MCX|438576"
+                tokens_to_subscribe = f"NFO|{token_ce}"
+                #tokens_to_subscribe = "MCX|443491"
                 print('tokens_to_subscribe',tokens_to_subscribe)
                 start_websocket(tokens_to_subscribe)
                 #print(token_ce,token_pe)
-
-
 
         else:
             print("Token is missing. Please login again.")
@@ -419,7 +477,9 @@ if __name__ == "__main__":
         if market_data:
             print(market_data['tsym'] + ' => ' + market_data['lp'])  # Pretty-print the response
             tsym = calculate_tsym("NIFTY", market_data['lp'], option_type="C")
-            print(tsym)
+            token_ce = get_token_for_tsym(tsym[0],susertoken)
+            token_pe = get_token_for_tsym(tsym[1],susertoken)
+            print(tsym,token_ce,token_pe)
         else:
             print("Failed to retrieve market data.")
     else:
