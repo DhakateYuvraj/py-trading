@@ -6,7 +6,7 @@ import os
 import websocket
 from collections import deque
 from datetime import datetime, timedelta, timezone
-from util import calculate_tsym, convert_datetime, check_token_file_exists, sha256_encode, condition_1, handleData, read_token_from_file, save_token_to_file, CONFIG
+from util import calculate_tsym, convert_datetime, check_token_file_exists, sha256_encode, condition_1, handleData, read_token_from_file, save_token_to_file, fetch_data, CONFIG
 
 latest_records = deque()
 data_ce={}
@@ -22,6 +22,12 @@ GET_QUOTES_URL = CONFIG["base_url"] + "GetQuotes"
 SEARCH_SCRIP_URL = CONFIG["base_url"] + "SearchScrip"
 
 
+options = [
+    {"name": "Nifty","value": "NIFTY", "token": "26000", "exch": "NSE","weeklyLot":75,"monthlyLot":25,"strike_interval":50},
+    {"name": "BankNifty","value": "BANKNIFTY", "token": "26009", "exch": "NSE","weeklyLot":30,"monthlyLot":15,"strike_interval":100},
+]
+
+
 def display_latest_records():
     """ Display latest_records in a table format """
     if not latest_records:
@@ -34,10 +40,6 @@ def display_latest_records():
     df['time'] = df['time'].dt.strftime('%H:%M:%S')  # Format time for better readability
     
     print(df.to_string(index=False, justify='center'))
-
-def placeOrder():
-    """ Placeholder for placing an order """
-    logging.info("Placing Order... 🚀")
 
 
 def on_message(ws, message):
@@ -63,80 +65,9 @@ def on_message(ws, message):
         
         #condition_1(data)
         handleData(data, data_ce, data_pe)
-        '''
-        # Convert fields to appropriate types
-        try:
-            current_volume = data.get('v')  # Get volume (None if not present)
-            current_lp = float(data.get('lp', 0))  # Default to 0 if not present
-            record_time = datetime.fromtimestamp(int(data['ft']))  # Convert Unix timestamp to datetime
-        except (ValueError, TypeError) as e:
-            logging.error(f"Invalid data format: {e}")
-            return
-
-        # Extract previous values if available
-        previous_record = latest_records[-1] if latest_records else None
-        previous_volume = previous_record['v'] if previous_record else None
-        previous_lp = previous_record['lp'] if previous_record else 0
-
-        # Use actual volume if present; otherwise, copy previous volume
-        if current_volume is None or current_volume == 0:
-            current_volume = previous_volume  # Copy only if missing
-        else:
-            current_volume = float(current_volume)  # Convert valid volume
-
-        # Calculate changes
-        delta_v = current_volume - previous_volume if previous_volume is not None else 0
-        delta_v_percent = (delta_v / previous_volume * 100) if previous_volume else 0
-
-        delta_lp = current_lp - previous_lp if previous_lp else 0
-        delta_lp_percent = (delta_lp / previous_lp * 100) if previous_lp else 0
-
-        # Check if a record with the same timestamp exists
-        merged = False
-        for record in latest_records:
-            if record['time'] == record_time:
-                # Merge missing fields
-                if record['v'] is None or record['v'] == 0:
-                    record['v'] = current_volume  # Copy only if missing
-                if record['lp'] == 0:
-                    record['lp'] = current_lp
-                logging.info(f"Merged record: {record}")
-                merged = True
-                break
-
-        if not merged:
-            # Append new record only if it wasn't merged
-            latest_records.append({
-                'time': record_time, 
-                'v': current_volume, 
-                'Δv': delta_v, 
-                'Δv%': round(delta_v_percent, 2), 
-                'lp': current_lp, 
-                'Δlp': round(delta_lp, 2), 
-                'Δlp%': round(delta_lp_percent, 2)
-            })
-
-
-        # Skip first message for comparisons
-        if previous_volume is None:
-            logging.info("First message received. Skipping volume and LP comparisons.")
-            #display_latest_records()  # Refresh table
-            return
-
-        # Condition 1: Volume change percentage > 30%
-        if previous_volume and previous_volume > 0:  # Avoid division by zero
-            #print(previous_volume,delta_lp_percent)
-            #if delta_v_percent > 0.2 and delta_v_percent < 10 and delta_lp_percent > 1 and delta_lp_percent < 20:
-            if delta_v_percent > 0.1 and delta_v_percent < 10 and delta_lp_percent > 1 and delta_lp_percent < 20:
-                logging.info(f"Volume change % > 0.2 and lp change % > 2. Current: {current_volume}, Previous: {previous_volume}")
-                print('########################################################################################## hurry',record_time,current_lp)
-                placeOrder()
-
-        # Remove records older than the time window (15 minutes)
-        current_time = datetime.now()
-        while latest_records and latest_records[0]['time'] < current_time - time_window:
-            latest_records.popleft()
-        '''
+        #handleData(data, {"name":"443491","token":"443491","data":[], "ohlc_1m" : {},"ohlc_5m" : {},}, data_pe)
+     
+        #print(data)
         #display_latest_records()  # Refresh table after updating records
 
     except json.JSONDecodeError as e:
@@ -156,7 +87,6 @@ def on_close(ws, close_status_code, close_msg):
             json.dump(data_pe, file, default=convert_datetime, indent=4)
     except Exception as e:
         print(f"Error saving token: {e}")
-
 
 def on_open(ws):
     print("WebSocket connection opened.")
@@ -189,7 +119,6 @@ def start_websocket(tokens):
     ws.on_open = on_open
     ws.tokens = tokens  # Attach tokens to WebSocket object
     ws.run_forever()
-
 
 def get_token_for_tsym(tsym, susertoken, exchange="NFO"):
     if not susertoken:
@@ -288,6 +217,26 @@ def get_market_data(token,exch,susertoken):
 
 # Main function
 if __name__ == "__main__":
+    # Display options
+    print("Select an option:")
+    for i, option in enumerate(options, start=1):
+        print(f"{i}. {option['name']}")
+
+    # Take user input
+    choice = input("Enter your choice (1 or 2): ")
+
+    # Validate input
+    if choice.isdigit():
+        choice = int(choice)
+        if 1 <= choice <= len(options):
+            selected_option = options[choice - 1]
+            print(f"You selected: {selected_option['name']} ({selected_option['token']} - {selected_option['exch']})")
+        else:
+            print("Invalid choice. Please select a valid option.")
+    else:
+        print("Invalid input. Please enter a number.")
+
+
 
     if check_token_file_exists():
         today_date = datetime.today().strftime('%Y-%m-%d')  # Get today's date in YYYY-MM-DD format
@@ -302,24 +251,35 @@ if __name__ == "__main__":
         susertoken, susertokenspl = login()
 
     if susertoken:
-        market_data = get_market_data("26000","NSE",susertoken)
+        market_data = get_market_data(selected_option["token"],"NSE",susertoken)
         if market_data:
             print(market_data['tsym'] + ' => ' + market_data['lp'])
-            tsym = calculate_tsym("NIFTY", market_data['lp'])
+            tsym = calculate_tsym(selected_option["value"], market_data['lp'],selected_option["strike_interval"])
             token_ce = get_token_for_tsym(tsym[0],susertoken)
             token_pe = get_token_for_tsym(tsym[1],susertoken)
             data_ce = {
                 "name":tsym[0],
                 "token":token_ce,
+                "ohlc_1m" : {},
+                "ohlc_5m" : {},
+                "ohlc_1m_api" : {},
+                "ohlc_5m_api" : {},
                 "data":[]
             }
             data_pe = {
                 "name":tsym[1],
                 "token":token_pe,
+                "ohlc_1m" : {},
+                "ohlc_5m" : {},
+                "ohlc_1m_api" : {},
+                "ohlc_5m_api" : {},
                 "data":[]
             }
             print(tsym,token_ce,token_pe)
+            fetch_data(data_ce,data_pe)
             print(f'NFO|{token_ce}#NFO|{token_pe}')
+            #MCX|443491
+            #start_websocket("MCX|443491")
             start_websocket(f'NFO|{token_ce}#NFO|{token_pe}')
         else:
             print("Failed to retrieve market data.")

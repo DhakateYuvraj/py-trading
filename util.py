@@ -9,6 +9,7 @@ import time
 from collections import deque
 from datetime import datetime, timedelta, timezone
 from datetime import datetime, timedelta
+import threading
 
 time_window = timedelta(minutes=30)
 
@@ -27,11 +28,52 @@ CONFIG = {
 }
 
 PLACE_ORDER_URL = CONFIG["base_url"] + "PlaceOrder"
-TRADE_BOOK_URL =  CONFIG["base_url"] + "TradeBook"
-ORDER_BOOK_URL =  CONFIG["base_url"] + "OrderBook"
+TRADE_BOOK_URL  = CONFIG["base_url"] + "TradeBook"
+ORDER_BOOK_URL  = CONFIG["base_url"] + "OrderBook"
+TPSERIES_URL    = CONFIG["base_url"] + "TPSeries"
 
 
+def shoonya_get_tp_series(token,intrv= '1'):
+    now = datetime.now()
+    start_time = (now - timedelta(minutes=30) - timedelta(minutes=1))
+    st = start_time.strftime('%Y-%m-%d %H:%M:%S')
+    et = now.strftime('%Y-%m-%d %H:%M:%S')
+    jData = {
+        "uid": CONFIG["user_id"],
+        "exch": "nfo",
+        "token": token,
+        "st": st,
+        "et": et,
+        "intrv": intrv #'1' | '3' | '5' | '10' | '15' | '30' | '60' | '120' | '240';
+    }
+    susertoken, susertokenspl, date  = read_token_from_file()
+    form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
+    response = requests.post(TPSERIES_URL, data=form_data)
+    return response.json()
 
+def fetch_data_one_min(option_obj):
+    print("fetch_data_one_min")
+    data = shoonya_get_tp_series(option_obj["token"])
+    #print(data)
+    option_obj["ohlc_1m_api"] = data
+    threading.Timer(60, fetch_data_one_min).start()
+
+
+def fetch_data_five_min(option_obj):
+    print("fetch_data_five_min")
+    data = shoonya_get_tp_series(option_obj["token"],'5')
+    #print(data)
+    print(option_obj)
+    option_obj["ohlc_5m_api"] = data
+    threading.Timer(300, fetch_data_five_min).start()
+
+def fetch_data(data_ce,data_pe):
+    fetch_data_one_min(data_ce)
+    fetch_data_one_min(data_pe)
+    fetch_data_five_min(data_ce)
+    fetch_data_five_min(data_pe)
+    # Schedule next call after 60 seconds
+    
 def shoonya_get_order_book():
     jData = {
         "uid": CONFIG["user_id"],
@@ -115,7 +157,7 @@ def convert_datetime(obj):
         return obj.strftime('%Y-%m-%d %H:%M:%S')  # Convert to string format
     raise TypeError(f"Type {type(obj)} not serializable")
 
-def get_expiry_date(year, month):
+def get_expiry_date(year, month, symbol):
     """
     Calculate the expiry date for the given month and year.
     Expiry is on the last Thursday, or the previous day if Thursday is a holiday.
@@ -162,7 +204,7 @@ def calculate_tsym(symbol, latest_price, strike_interval=50):
     month = today.month
 
     # Get the expiry date
-    expiry_date = get_expiry_date(year, month)
+    expiry_date = get_expiry_date(year, month, symbol)
 
     # Format the expiry date as DDMMMYY (e.g., 30JAN25)
     expiry_str = expiry_date.strftime("%d%b%y").upper()
@@ -298,14 +340,51 @@ def placeOrder(data,comment,tsym):
     except Exception as e:
         print(f"Error saving order: {e}")
 
+
+def update_ohlc(data,ohlc_1m,ohlc_5m):
+
+    # Convert Unix timestamp to datetime
+    timestamp = int(data["ft"])
+    dt = datetime.fromtimestamp(timestamp)
+    
+    # Extract minute and 5-minute bucket
+    minute_key = dt.strftime("%Y-%m-%d %H:%M")  # Example: "2025-01-30 12:25"
+    five_min_key = dt.strftime("%Y-%m-%d %H:") + str((dt.minute // 5) * 5).zfill(2)  # Example: "2025-01-30 12:25"
+
+    # Convert price to float
+    lp = float(data["lp"])
+
+    # Update 1-minute OHLC
+    if minute_key not in ohlc_1m:
+        ohlc_1m[minute_key] = {"open": lp, "high": lp, "low": lp, "close": lp}
+    else:
+        ohlc_1m[minute_key]["high"] = max(ohlc_1m[minute_key]["high"], lp)
+        ohlc_1m[minute_key]["low"] = min(ohlc_1m[minute_key]["low"], lp)
+        ohlc_1m[minute_key]["close"] = lp
+
+    # Update 5-minute OHLC
+    if five_min_key not in ohlc_5m:
+        ohlc_5m[five_min_key] = {"open": lp, "high": lp, "low": lp, "close": lp}
+    else:
+        ohlc_5m[five_min_key]["high"] = max(ohlc_5m[five_min_key]["high"], lp)
+        ohlc_5m[five_min_key]["low"] = min(ohlc_5m[five_min_key]["low"], lp)
+        ohlc_5m[five_min_key]["close"] = lp
+
+
 def updateData(data,data_option):
     stored_records = data_option['data']
+    print(data_option)
+    ohlc_1m = data_option['ohlc_1m']
+    ohlc_5m = data_option['ohlc_5m']
+
     try:
         current_volume = int(data.get('v',0))
         current_lp = float(data.get('lp', 0))
         record_time = datetime.fromtimestamp(int(data['ft']))
+        
     except (ValueError, TypeError) as e:
         logging.error(f"Invalid data format: {e}")
+        print(data)
         return
 
     previous_record = stored_records[-1] if stored_records else None
@@ -343,14 +422,16 @@ def updateData(data,data_option):
         'v_change_per': round(delta_v_percent, 2)
     })
     
+    update_ohlc(data,ohlc_1m,ohlc_5m)
+    
     if previous_volume is None or previous_volume == 0 or  previous_lp is None or  previous_lp == 0:
         logging.info("First message received. Skipping volume and LP comparisons.")
         return
     else:
-        if delta_v_percent > 0.5 and delta_v_percent < 10 and delta_lp_percent > 1 and delta_lp_percent < 20 and previous_lp > 0:
+        if delta_v_percent > 0.5 and delta_v_percent < 10 and delta_lp_percent > 1 and delta_lp_percent < 20 and previous_lp > 75:
             placeOrder(data,f'condition_1 => {delta_v_percent} > 0.5 and {delta_lp_percent} > 1',data_option["name"])
         else: 
-            if delta_v_percent > 0 and delta_v_percent < 10 and delta_lp_percent > 3 and delta_lp_percent < 20 and previous_lp > 75:
+            if delta_v_percent > 0 and delta_v_percent < 10 and delta_lp_percent > 4 and delta_lp_percent < 20 and previous_lp > 75:
                 placeOrder(data,f'condition_2 => {delta_v_percent} > 0 and {delta_lp_percent} > 3 ',data_option["name"])
         
 
