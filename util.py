@@ -27,6 +27,31 @@ CONFIG = {
 }
 
 PLACE_ORDER_URL = CONFIG["base_url"] + "PlaceOrder"
+TRADE_BOOK_URL =  CONFIG["base_url"] + "TradeBook"
+ORDER_BOOK_URL =  CONFIG["base_url"] + "OrderBook"
+
+
+
+def shoonya_get_order_book():
+    jData = {
+        "uid": CONFIG["user_id"],
+        "prd": "M",
+    }
+    susertoken, susertokenspl, date  = read_token_from_file()
+    form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
+    response = requests.post(ORDER_BOOK_URL, data=form_data)
+    return response.json()
+
+
+def shoonya_get_trade_book():
+    jData = {
+        "uid": CONFIG["user_id"],
+        "actid": CONFIG["user_id"],
+    }
+    susertoken, susertokenspl, date  = read_token_from_file()
+    form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
+    response = requests.post(TRADE_BOOK_URL, data=form_data)
+    return response.json()
 
 
 def shoonya_place_order(tsym,prc,remarks):
@@ -45,7 +70,8 @@ def shoonya_place_order(tsym,prc,remarks):
         "prd": "B",
         "remarks": remarks
     }
-    susertoken = read_token_from_file()
+    susertoken, susertokenspl, date  = read_token_from_file()
+
     form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
 
     # Send the POST request
@@ -225,12 +251,30 @@ def condition_1(data):
                     }) 
         print("=========>",all_data)
 
+def is_order_already_open(trade_book, tsym_to_check):
+    try:
+        # Ensure trade_book is a list
+        if isinstance(trade_book, str):  
+            trade_book = json.loads(trade_book)  # Convert JSON string to list
 
-def placeOrder(data,str,tsym):
-    print("Placing Order... 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀",str,data)
+        for order in trade_book:
+            if isinstance(order, dict) and order.get("status") == "OPEN" and order.get("tsym") == tsym_to_check:
+                return True
+    except Exception as e:
+        logging.error(f"Error processing trade_book: {e}")
+    return False
+
+
+def placeOrder(data,comment,tsym):
+    print("Placing Order... 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀",comment,data)
     date_str = datetime.now().strftime('%Y-%m-%d')  # Example: "2025-01-29"
     file_path = f'orders_{date_str}.txt'  # Example: "orders_2025-01-29.txt"
-    shoonya_place_order(tsym,data["lp"],str)
+    trade_book = shoonya_get_trade_book()
+    if is_order_already_open(trade_book, tsym):
+        print(f"Skipping order placement as {tsym} is already OPEN in trade book.")
+        return  # Exit early if an open order exists
+    
+    #shoonya_place_order(tsym,data["lp"],comment)
     # Step 1: Read existing data (if file exists)
     if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
         with open(file_path, 'r') as file:
@@ -244,7 +288,8 @@ def placeOrder(data,str,tsym):
         orders = []  # If file doesn't exist, start with an empty list
 
     # Step 2: Append new data
-    orders.append(data)
+    ft_datetime = datetime.fromtimestamp(int(data["ft"]))
+    orders.append({**data, "date": ft_datetime.strftime("%Y-%m-%d"),"tsym":tsym,"comment":comment})
 
     # Step 3: Write updated list back to file
     try:
@@ -297,16 +342,16 @@ def updateData(data,data_option):
         'v_change': delta_v, 
         'v_change_per': round(delta_v_percent, 2)
     })
-
+    
     if previous_volume is None or previous_volume == 0 or  previous_lp is None or  previous_lp == 0:
         logging.info("First message received. Skipping volume and LP comparisons.")
         return
     else:
-        if delta_v_percent > 0.5 and delta_v_percent < 10 and delta_lp_percent > 1 and delta_lp_percent < 20:
-            placeOrder(data,f'{delta_v_percent} **** ',data_option["name"])
+        if delta_v_percent > 0.5 and delta_v_percent < 10 and delta_lp_percent > 1 and delta_lp_percent < 20 and previous_lp > 0:
+            placeOrder(data,f'condition_1 => {delta_v_percent} > 0.5 and {delta_lp_percent} > 1',data_option["name"])
         else: 
-            if delta_v_percent < 10 and delta_lp_percent > 3 and delta_lp_percent < 20 and previous_lp > 0:
-                placeOrder(data,f'{delta_v_percent} --- {delta_lp_percent}',data_option["name"])
+            if delta_v_percent > 0 and delta_v_percent < 10 and delta_lp_percent > 3 and delta_lp_percent < 20 and previous_lp > 75:
+                placeOrder(data,f'condition_2 => {delta_v_percent} > 0 and {delta_lp_percent} > 3 ',data_option["name"])
         
 
     # Remove records older than the time window (15 minutes)
