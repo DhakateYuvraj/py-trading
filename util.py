@@ -10,6 +10,7 @@ from collections import deque
 from datetime import datetime, timedelta, timezone
 from datetime import datetime, timedelta
 import threading
+import functools
 
 time_window = timedelta(minutes=30)
 
@@ -35,37 +36,41 @@ TPSERIES_URL    = CONFIG["base_url"] + "TPSeries"
 
 def shoonya_get_tp_series(token,intrv= '1'):
     now = datetime.now()
-    start_time = (now - timedelta(minutes=30) - timedelta(minutes=1))
+    start_time = (now - timedelta(minutes=5) - timedelta(minutes=1))
     st = start_time.strftime('%Y-%m-%d %H:%M:%S')
     et = now.strftime('%Y-%m-%d %H:%M:%S')
     jData = {
         "uid": CONFIG["user_id"],
         "exch": "nfo",
-        "token": token,
-        "st": st,
-        "et": et,
-        "intrv": intrv #'1' | '3' | '5' | '10' | '15' | '30' | '60' | '120' | '240';
+        "token": str(token),
+        "st": str(st),
+        "et": str(et),
+        "intrv": str(intrv) #'1' | '3' | '5' | '10' | '15' | '30' | '60' | '120' | '240';
     }
-    susertoken, susertokenspl, date  = read_token_from_file()
+    susertoken, _, _  = read_token_from_file()
+
     form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
+    print(form_data)
     response = requests.post(TPSERIES_URL, data=form_data)
+    print("response.json()",response.json())
     return response.json()
 
 def fetch_data_one_min(option_obj):
-    print("fetch_data_one_min")
+    print("fetch_data_one_min",datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     data = shoonya_get_tp_series(option_obj["token"])
-    #print(data)
+    print(data)
     option_obj["ohlc_1m_api"] = data
-    threading.Timer(60, fetch_data_one_min).start()
+    #threading.Timer(60, fetch_data_one_min).start()
+    threading.Timer(60, functools.partial(fetch_data_one_min, option_obj)).start()
 
 
 def fetch_data_five_min(option_obj):
-    print("fetch_data_five_min")
+    print("fetch_data_five_min ==> ",datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     data = shoonya_get_tp_series(option_obj["token"],'5')
-    #print(data)
-    print(option_obj)
+    print("fetch_data_five_min datadata==> ",data)
+    #print(option_obj)
     option_obj["ohlc_5m_api"] = data
-    threading.Timer(300, fetch_data_five_min).start()
+    threading.Timer(300, functools.partial(fetch_data_five_min, option_obj)).start()
 
 def fetch_data(data_ce,data_pe):
     fetch_data_one_min(data_ce)
@@ -157,36 +162,68 @@ def convert_datetime(obj):
         return obj.strftime('%Y-%m-%d %H:%M:%S')  # Convert to string format
     raise TypeError(f"Type {type(obj)} not serializable")
 
-def get_expiry_date(year, month, symbol):
+
+
+
+def get_nifty_expiry():
+    """
+    Get the next weekly expiry date for Nifty options.
+    If expiry falls on a holiday, move to Wednesday.
+    """
+    today = datetime.today().date()  # Get only date part
+
+    # Find the next Thursday
+    days_to_thursday = (3 - today.weekday()) % 7  # 3 represents Thursday
+    expiry_date = today + timedelta(days=days_to_thursday)
+
+    # If today is already Thursday and not a holiday, return today
+    if today.weekday() == 3 and not is_holiday(today):
+        return today.strftime("%d%b%y").upper()
+
+    # If Thursday is a holiday, move to Wednesday
+    if is_holiday(expiry_date):
+        expiry_date -= timedelta(days=1)
+
+    return expiry_date
+
+def get_expiry_date(symbol):
     """
     Calculate the expiry date for the given month and year.
-    Expiry is on the last Thursday, or the previous day if Thursday is a holiday.
+    Expiry is on the last Thursday of the month.
+    If today is after the expiry date, move to next month's expiry.
     """
-    # Get the last day of the month
-    if month == 12:
-        next_month = datetime(year + 1, 1, 1)
-    else:
-        next_month = datetime(year, month + 1, 1)
-    last_day = next_month - timedelta(days=1)
+        # Get the current year and month
+    today = datetime.now()
+    year = today.year
+    month = today.month
 
-    # Start with the last Thursday
-    last_thursday = last_day - timedelta(days=(last_day.weekday() - 3) % 7)
+    today_data = datetime.now().date()  # Current date without time
 
-    # Check if Thursday is a holiday
-    if is_holiday(last_thursday):
-        # Move to Wednesday
+    while True:  # Loop until we find a valid expiry
+        # Get the last day of the month
+        if month == 12:
+            next_month = datetime(year + 1, 1, 1)
+        else:
+            next_month = datetime(year, month + 1, 1)
+        last_day = next_month - timedelta(days=1)
+
+        # Find the last Thursday of the month
+        last_thursday = last_day - timedelta(days=(last_day.weekday() - 3) % 7)
+
+        # If expiry has already passed, move to next month
+        if last_thursday.date() > today_data:
+            break
+        else:
+            month += 1  # Move to next month
+            if month > 12:
+                month = 1
+                year += 1
+
+    # Handle holiday check
+    while is_holiday(last_thursday):
         last_thursday -= timedelta(days=1)
-        # Check if Wednesday is also a holiday
-        if is_holiday(last_thursday):
-            # Move to Tuesday
-            last_thursday -= timedelta(days=1)
-            # Check if Tuesday is also a holiday
-            if is_holiday(last_thursday):
-                # Move to Monday
-                last_thursday -= timedelta(days=1)
 
     return last_thursday
-
 
 def calculate_tsym(symbol, latest_price, strike_interval=50):
     """
@@ -194,23 +231,19 @@ def calculate_tsym(symbol, latest_price, strike_interval=50):
     """
     latest_price = float(latest_price)
     # Round the latest price to the nearest strike interval
-    strike_price = round(latest_price / strike_interval) * strike_interval + strike_interval
     strike_price_c = round(latest_price / strike_interval) * strike_interval + strike_interval
     strike_price_p = round(latest_price / strike_interval) * strike_interval - strike_interval
 
-    # Get the current year and month
-    today = datetime.now()
-    year = today.year
-    month = today.month
-
     # Get the expiry date
-    expiry_date = get_expiry_date(year, month, symbol)
+    if symbol == "NIFTY":
+        expiry_date = get_nifty_expiry()
+    else:
+        expiry_date = get_expiry_date(symbol)
 
     # Format the expiry date as DDMMMYY (e.g., 30JAN25)
     expiry_str = expiry_date.strftime("%d%b%y").upper()
 
     # Construct the tsym
-    tsym = f"{symbol}{expiry_str}{strike_price}"
     tsym_c = f"{symbol}{expiry_str}C{strike_price_c}"
     tsym_p = f"{symbol}{expiry_str}P{strike_price_p}"
     return [tsym_c,tsym_p]
@@ -255,7 +288,7 @@ def read_token_from_file():
     
 def condition_1(data):
     print(data)
-    current_lp = float(data.get('lp', 0))
+    current_lp = float(data.get('lp', data.get('sp1', 0)))
     record_time = datetime.fromtimestamp(int(data['ft']))
     if all_data:
         first_record_time = all_data[0]['record_time']  # Directly access without converting
@@ -272,7 +305,7 @@ def condition_1(data):
                     all_data[0]['h'] = current_lp
                 if current_lp < all_data[0]['l']:
                     all_data[0]['l'] = current_lp
-            print("The times match up to the minute!",record_time,first_record_time, data.get('lp', 0))
+            print("The times match up to the minute!",record_time,first_record_time, float(data.get('lp', data.get('sp1', 0))))
         else:
             print("The times do not match.",record_time,first_record_time)
             all_data.insert(0, {"current_lp":current_lp,
@@ -316,7 +349,7 @@ def placeOrder(data,comment,tsym):
         print(f"Skipping order placement as {tsym} is already OPEN in trade book.")
         return  # Exit early if an open order exists
     
-    #shoonya_place_order(tsym,data["lp"],comment)
+    shoonya_place_order(tsym,data["lp"],comment)
     # Step 1: Read existing data (if file exists)
     if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
         with open(file_path, 'r') as file:
@@ -352,7 +385,7 @@ def update_ohlc(data,ohlc_1m,ohlc_5m):
     five_min_key = dt.strftime("%Y-%m-%d %H:") + str((dt.minute // 5) * 5).zfill(2)  # Example: "2025-01-30 12:25"
 
     # Convert price to float
-    lp = float(data["lp"])
+    lp = float(data.get('lp', data.get('sp1', 0)))
 
     # Update 1-minute OHLC
     if minute_key not in ohlc_1m:
@@ -373,19 +406,20 @@ def update_ohlc(data,ohlc_1m,ohlc_5m):
 
 def updateData(data,data_option):
     stored_records = data_option['data']
-    print(data_option)
+    #print(data_option)
     ohlc_1m = data_option['ohlc_1m']
     ohlc_5m = data_option['ohlc_5m']
 
     try:
         current_volume = int(data.get('v',0))
-        current_lp = float(data.get('lp', 0))
+        current_lp = float(data.get('lp', data.get('sp1', 0)))
         record_time = datetime.fromtimestamp(int(data['ft']))
         
     except (ValueError, TypeError) as e:
         logging.error(f"Invalid data format: {e}")
         print(data)
         return
+
 
     previous_record = stored_records[-1] if stored_records else None
     previous_volume = previous_record['v'] if previous_record else 0
@@ -402,7 +436,6 @@ def updateData(data,data_option):
         current_lp = previous_lp  # Copy only if missing
     else:
         current_lp = float(current_lp)  # Convert valid volume
-
 
     # Calculate changes
     delta_v = current_volume - previous_volume if previous_volume is not None else 0
@@ -428,6 +461,7 @@ def updateData(data,data_option):
         logging.info("First message received. Skipping volume and LP comparisons.")
         return
     else:
+        print(delta_v_percent, " > 0.5 |||| " ,delta_lp_percent, " > 1", record_time,"======>",data_option['name'],current_lp)
         if delta_v_percent > 0.5 and delta_v_percent < 10 and delta_lp_percent > 1 and delta_lp_percent < 20 and previous_lp > 75:
             placeOrder(data,f'condition_1 => {delta_v_percent} > 0.5 and {delta_lp_percent} > 1',data_option["name"])
         else: 

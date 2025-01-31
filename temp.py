@@ -253,8 +253,9 @@ if __name__ == "__main__":
     if susertoken:
         market_data = get_market_data(selected_option["token"],"NSE",susertoken)
         if market_data:
-            print(market_data['tsym'] + ' => ' + market_data['lp'])
-            tsym = calculate_tsym(selected_option["value"], market_data['lp'],selected_option["strike_interval"])
+            market_data_lp = str(market_data.get('lp', market_data.get('sp1', 0)))
+            print(market_data['tsym'] + ' => ' + market_data_lp)
+            tsym = calculate_tsym(selected_option["value"], market_data_lp,selected_option["strike_interval"])
             token_ce = get_token_for_tsym(tsym[0],susertoken)
             token_pe = get_token_for_tsym(tsym[1],susertoken)
             data_ce = {
@@ -276,7 +277,7 @@ if __name__ == "__main__":
                 "data":[]
             }
             print(tsym,token_ce,token_pe)
-            fetch_data(data_ce,data_pe)
+            #fetch_data(data_ce,data_pe)
             print(f'NFO|{token_ce}#NFO|{token_pe}')
             #MCX|443491
             #start_websocket("MCX|443491")
