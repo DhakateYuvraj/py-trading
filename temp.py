@@ -1,3 +1,4 @@
+import asyncio
 import requests
 import logging
 import json
@@ -6,7 +7,7 @@ import os
 import websocket
 from collections import deque
 from datetime import datetime, timedelta, timezone
-from util import calculate_tsym, convert_datetime, check_token_file_exists, sha256_encode, condition_1, handleData, read_token_from_file, save_token_to_file, fetch_data, CONFIG
+from util import calculate_tsym, convert_datetime, check_token_file_exists, sha256_encode, handleData, read_token_from_file, save_token_to_file, fetch_data, CONFIG
 
 latest_records = deque()
 data_ce={}
@@ -215,6 +216,13 @@ def get_market_data(token,exch,susertoken):
         print(f"Error fetching market data: {e}")
         return None
 
+async def startApp(data_ce, data_pe, token_ce, token_pe):
+    await asyncio.gather(
+        fetch_data(data_ce, data_pe),
+        start_websocket(f'NFO|{token_ce}#NFO|{token_pe}')
+    )
+
+
 # Main function
 if __name__ == "__main__":
     # Display options
@@ -235,8 +243,6 @@ if __name__ == "__main__":
             print("Invalid choice. Please select a valid option.")
     else:
         print("Invalid input. Please enter a number.")
-
-
 
     if check_token_file_exists():
         today_date = datetime.today().strftime('%Y-%m-%d')  # Get today's date in YYYY-MM-DD format
@@ -277,7 +283,8 @@ if __name__ == "__main__":
                 "data":[]
             }
             print(tsym,token_ce,token_pe)
-            #fetch_data(data_ce,data_pe)
+            #asyncio.run(startApp(data_ce, data_pe, token_ce, token_pe))
+            fetch_data(data_ce,data_pe)
             print(f'NFO|{token_ce}#NFO|{token_pe}')
             #MCX|443491
             #start_websocket("MCX|443491")

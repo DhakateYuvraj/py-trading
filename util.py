@@ -1,3 +1,5 @@
+import asyncio
+import aiohttp
 import requests
 import logging
 import hashlib
@@ -6,6 +8,7 @@ import pandas as pd
 import os
 import websocket
 import time
+import numpy as np
 from collections import deque
 from datetime import datetime, timedelta, timezone
 from datetime import datetime, timedelta
@@ -33,100 +36,6 @@ TRADE_BOOK_URL  = CONFIG["base_url"] + "TradeBook"
 ORDER_BOOK_URL  = CONFIG["base_url"] + "OrderBook"
 TPSERIES_URL    = CONFIG["base_url"] + "TPSeries"
 
-
-def shoonya_get_tp_series(token,intrv= '1'):
-    now = datetime.now()
-    start_time = (now - timedelta(minutes=5) - timedelta(minutes=1))
-    st = start_time.strftime('%Y-%m-%d %H:%M:%S')
-    et = now.strftime('%Y-%m-%d %H:%M:%S')
-    jData = {
-        "uid": CONFIG["user_id"],
-        "exch": "nfo",
-        "token": str(token),
-        "st": str(st),
-        "et": str(et),
-        "intrv": str(intrv) #'1' | '3' | '5' | '10' | '15' | '30' | '60' | '120' | '240';
-    }
-    susertoken, _, _  = read_token_from_file()
-
-    form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
-    print(form_data)
-    response = requests.post(TPSERIES_URL, data=form_data)
-    print("response.json()",response.json())
-    return response.json()
-
-def fetch_data_one_min(option_obj):
-    print("fetch_data_one_min",datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    data = shoonya_get_tp_series(option_obj["token"])
-    print(data)
-    option_obj["ohlc_1m_api"] = data
-    #threading.Timer(60, fetch_data_one_min).start()
-    threading.Timer(60, functools.partial(fetch_data_one_min, option_obj)).start()
-
-
-def fetch_data_five_min(option_obj):
-    print("fetch_data_five_min ==> ",datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    data = shoonya_get_tp_series(option_obj["token"],'5')
-    print("fetch_data_five_min datadata==> ",data)
-    #print(option_obj)
-    option_obj["ohlc_5m_api"] = data
-    threading.Timer(300, functools.partial(fetch_data_five_min, option_obj)).start()
-
-def fetch_data(data_ce,data_pe):
-    fetch_data_one_min(data_ce)
-    fetch_data_one_min(data_pe)
-    fetch_data_five_min(data_ce)
-    fetch_data_five_min(data_pe)
-    # Schedule next call after 60 seconds
-    
-def shoonya_get_order_book():
-    jData = {
-        "uid": CONFIG["user_id"],
-        "prd": "M",
-    }
-    susertoken, susertokenspl, date  = read_token_from_file()
-    form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
-    response = requests.post(ORDER_BOOK_URL, data=form_data)
-    return response.json()
-
-
-def shoonya_get_trade_book():
-    jData = {
-        "uid": CONFIG["user_id"],
-        "actid": CONFIG["user_id"],
-    }
-    susertoken, susertokenspl, date  = read_token_from_file()
-    form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
-    response = requests.post(TRADE_BOOK_URL, data=form_data)
-    return response.json()
-
-
-def shoonya_place_order(tsym,prc,remarks):
-    jData = {
-        "uid": CONFIG["user_id"],
-        "actid": CONFIG["user_id"],
-        "exch": "NFO",
-        "tsym": tsym,
-        "qty": "75",
-        "prc": prc,
-        "trantype": "B",
-        "ret": "DAY",
-        "prctyp": "MKT",
-        "bpprc": "{:.2f}".format(float(prc) * 1.1),  # ✅ Correct
-        "blprc": "{:.2f}".format(float(prc) * 0.9),  # ✅ Correct
-        "prd": "B",
-        "remarks": remarks
-    }
-    susertoken, susertokenspl, date  = read_token_from_file()
-
-    form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
-
-    # Send the POST request
-    response = requests.post(PLACE_ORDER_URL, data=form_data)
-
-    # Print the response
-    print(response.json())
-
 # List of NSE holidays (example for 2025-2025)
 NSE_HOLIDAYS = [
     "2025-02-26",  # Mahashivratri
@@ -148,6 +57,138 @@ NSE_HOLIDAYS = [
 
 all_data = deque()
 
+async def shoonya_get_tp_series_async(session, token, intrv='1'):
+    now = datetime.now()
+    start_time = now - timedelta(hours=1)  # Fetch last 1 hour of data
+
+    st = int(start_time.timestamp())  # Convert to epoch
+    et = int(now.timestamp())  # Convert to epoch
+
+    jData = {
+        "uid": CONFIG["user_id"],
+        "exch": "NFO",
+        "token": str(token),
+        "st": str(st),
+        "et": str(et),
+        "intrv": str(intrv)
+    }
+
+    susertoken, _, _ = read_token_from_file()
+    form_data = "jData=" + json.dumps(jData) + "&jKey=" + susertoken
+    #print("Requesting:", form_data)
+
+    timeout = aiohttp.ClientTimeout(total=30)  # Set 15 seconds timeout
+
+    try:
+        async with session.post(TPSERIES_URL, data=form_data, timeout=timeout) as response:
+            response_text = await response.text()  # Read response as text (for debugging)
+            print("Response:", response_text)
+            return json.loads(response_text)  # Convert back to JSON
+    except asyncio.TimeoutError:
+        print("❌ Request timed out after 30 seconds")
+        return None
+    except Exception as e:
+        print("❌ Error:", e)
+        return None
+
+async def fetch_all_data_async(data_ce, data_pe):
+    """Fetch both 1-min and 5-min data for CE and PE asynchronously"""
+    print("fetch_all_data_async", datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+
+    async with aiohttp.ClientSession() as session:
+        # Fetch 1-minute data for CE & PE
+        tasks = [
+            shoonya_get_tp_series_async(session, data_ce["token"], '1'),
+            shoonya_get_tp_series_async(session, data_pe["token"], '1')
+        ]
+
+        # Fetch 5-minute data only when minute % 5 == 0
+        if datetime.now().minute % 5 == 0:
+            tasks.extend([
+                shoonya_get_tp_series_async(session, data_ce["token"], '5'),
+                shoonya_get_tp_series_async(session, data_pe["token"], '5')
+            ])
+
+        results = await asyncio.gather(*tasks)
+
+    #print('results - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ',results)
+
+    # Store results in the respective dictionaries
+    data_ce["ohlc_1m_api"] = results[0]
+    data_pe["ohlc_1m_api"] = results[1]
+
+    #print("CE 1m Data:", results[0])
+    #print("PE 1m Data:", results[1])
+
+    # If we fetched 5-minute data, store it as well
+    if len(results) > 2:
+        data_ce["ohlc_5m_api"] = results[2]
+        data_pe["ohlc_5m_api"] = results[3]
+        #print("CE 5m Data:", results[2])
+        #print("PE 5m Data:", results[3])
+
+def fetch_data(data_ce, data_pe):
+    """Wrapper to run the async function inside the same event loop"""
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    loop.run_until_complete(fetch_all_data_async(data_ce, data_pe))
+
+    # Calculate the next execution time
+    now = datetime.now()
+
+    # Next execution at HH:MM:01
+    next_run = (now + timedelta(minutes=1)).replace(second=1, microsecond=0)
+    delay = (next_run - now).total_seconds()
+
+    # Schedule the next run
+    threading.Timer(delay, functools.partial(fetch_data, data_ce, data_pe)).start()
+    
+def shoonya_get_order_book():
+    jData = {
+        "uid": CONFIG["user_id"],
+        "prd": "M",
+    }
+    susertoken, _, _  = read_token_from_file()
+    form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
+    response = requests.post(ORDER_BOOK_URL, data=form_data)
+    return response.json()
+
+def shoonya_get_trade_book():
+    jData = {
+        "uid": CONFIG["user_id"],
+        "actid": CONFIG["user_id"],
+    }
+    susertoken, _, _  = read_token_from_file()
+    form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
+    response = requests.post(TRADE_BOOK_URL, data=form_data)
+    return response.json()
+
+def shoonya_place_order(tsym,prc,remarks):
+    jData = {
+        "uid": CONFIG["user_id"],
+        "actid": CONFIG["user_id"],
+        "exch": "NFO",
+        "tsym": tsym,
+        "qty": "75",
+        "prc": prc,
+        "trantype": "B",
+        "ret": "DAY",
+        "prctyp": "MKT",
+        "bpprc": "{:.2f}".format(float(prc) * 1.1),  # ✅ Correct
+        "blprc": "{:.2f}".format(float(prc) * 0.9),  # ✅ Correct
+        "prd": "B",
+        "remarks": remarks
+    }
+    susertoken, _, _  = read_token_from_file()
+
+    form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
+
+    # Send the POST request
+    response = requests.post(PLACE_ORDER_URL, data=form_data)
+
+    # Print the response
+    print(response.json())
+
 def is_holiday(date):
     """
     Check if the given date is a holiday.
@@ -155,15 +196,11 @@ def is_holiday(date):
     date_str = date.strftime("%Y-%m-%d")
     return date_str in NSE_HOLIDAYS
 
-
 def convert_datetime(obj):
     """ Convert datetime objects to strings for JSON serialization """
     if isinstance(obj, datetime):
         return obj.strftime('%Y-%m-%d %H:%M:%S')  # Convert to string format
     raise TypeError(f"Type {type(obj)} not serializable")
-
-
-
 
 def get_nifty_expiry():
     """
@@ -248,15 +285,12 @@ def calculate_tsym(symbol, latest_price, strike_interval=50):
     tsym_p = f"{symbol}{expiry_str}P{strike_price_p}"
     return [tsym_c,tsym_p]
 
-
 # Function to check if the tokens.json file exists
 def check_token_file_exists():
     return os.path.exists('tokens.json')
 
-
 def sha256_encode(password):
     return hashlib.sha256(password.encode()).hexdigest()
-
 
 # Function to save token to tokens.json
 def save_token_to_file(susertoken, susertokenspl):
@@ -272,7 +306,6 @@ def save_token_to_file(susertoken, susertokenspl):
     except Exception as e:
         print(f"Error saving token: {e}")
 
-
 # Function to read token from tokens.json
 def read_token_from_file():
     try:
@@ -286,46 +319,6 @@ def read_token_from_file():
         print("Error decoding the token file.")
         return None, None, None
     
-def condition_1(data):
-    print(data)
-    current_lp = float(data.get('lp', data.get('sp1', 0)))
-    record_time = datetime.fromtimestamp(int(data['ft']))
-    if all_data:
-        first_record_time = all_data[0]['record_time']  # Directly access without converting
-        if record_time.replace(second=0, microsecond=0) == first_record_time.replace(second=0, microsecond=0):
-            if current_lp > 0:
-                all_data[0]['c'] = current_lp
-                if all_data[0]['o'] == 0:
-                    all_data[0]['o'] = current_lp
-                if all_data[0]['l'] == 0:
-                    all_data[0]['l'] = current_lp
-                if all_data[0]['h'] == 0:
-                    all_data[0]['h'] = current_lp
-                if current_lp > all_data[0]['h']:
-                    all_data[0]['h'] = current_lp
-                if current_lp < all_data[0]['l']:
-                    all_data[0]['l'] = current_lp
-            print("The times match up to the minute!",record_time,first_record_time, float(data.get('lp', data.get('sp1', 0))))
-        else:
-            print("The times do not match.",record_time,first_record_time)
-            all_data.insert(0, {"current_lp":current_lp,
-                                "record_time":record_time.replace(second=0, microsecond=0),
-                                "o" : current_lp,
-                                "c" : current_lp,
-                                "h" : current_lp,
-                                "l" : current_lp,
-                                }) 
-            print("=========>",all_data)
-    else:
-        all_data.insert(0, {"current_lp":current_lp,
-                    "record_time":record_time.replace(second=0, microsecond=0),
-                    "o" : current_lp,
-                    "c" : current_lp,
-                    "h" : current_lp,
-                    "l" : current_lp,
-                    }) 
-        print("=========>",all_data)
-
 def is_order_already_open(trade_book, tsym_to_check):
     try:
         # Ensure trade_book is a list
@@ -338,7 +331,6 @@ def is_order_already_open(trade_book, tsym_to_check):
     except Exception as e:
         logging.error(f"Error processing trade_book: {e}")
     return False
-
 
 def placeOrder(data,comment,tsym):
     print("Placing Order... 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀",comment,data)
@@ -364,7 +356,7 @@ def placeOrder(data,comment,tsym):
 
     # Step 2: Append new data
     ft_datetime = datetime.fromtimestamp(int(data["ft"]))
-    orders.append({**data, "date": ft_datetime.strftime("%Y-%m-%d"),"tsym":tsym,"comment":comment})
+    orders.append({**data, "date": ft_datetime.strftime("%Y-%m-%d %H:%M:%S"),"tsym":tsym,"comment":comment,"bpprc": "{:.2f}".format(float(data["lp"]) * 1.1),"blprc": "{:.2f}".format(float(data["lp"]) * 0.9)})
 
     # Step 3: Write updated list back to file
     try:
@@ -373,9 +365,8 @@ def placeOrder(data,comment,tsym):
     except Exception as e:
         print(f"Error saving order: {e}")
 
-
 def update_ohlc(data,ohlc_1m,ohlc_5m):
-
+    #print('data',data)
     # Convert Unix timestamp to datetime
     timestamp = int(data["ft"])
     dt = datetime.fromtimestamp(timestamp)
@@ -403,6 +394,26 @@ def update_ohlc(data,ohlc_1m,ohlc_5m):
         ohlc_5m[five_min_key]["low"] = min(ohlc_5m[five_min_key]["low"], lp)
         ohlc_5m[five_min_key]["close"] = lp
 
+    # Calculate 20-period Moving Average and Standard Deviation for 5-minute data
+    close_prices = [candle["close"] for candle in ohlc_5m.values()]
+    if len(close_prices) >= 20:  # Ensure we have enough data points
+        ma = np.mean(close_prices[-20:])  # Last 20 periods
+        sd = np.std(close_prices[-20:])   # Standard deviation of last 20 periods
+
+        # Calculate Bollinger Bands
+        upper_band = ma + 2 * sd
+        lower_band = ma - 2 * sd
+
+        # Generate signals
+        current_close = lp
+        if current_close > upper_band:
+            logging.info(f"Overbought Signal at {five_min_key}: Price = {current_close}, Upper Band = {upper_band}")
+            # Place sell order or short position
+            placeOrder(data, f"Overbought: Price crossed Upper Band ({upper_band})", data["tk"])    #SELL
+        elif current_close < lower_band:
+            logging.info(f"Oversold Signal at {five_min_key}: Price = {current_close}, Lower Band = {lower_band}")
+            # Place buy order or long position
+            placeOrder(data, f"Oversold: Price crossed Lower Band ({lower_band})", data["tk"])      #BUY
 
 def updateData(data,data_option):
     stored_records = data_option['data']
@@ -417,7 +428,6 @@ def updateData(data,data_option):
         
     except (ValueError, TypeError) as e:
         logging.error(f"Invalid data format: {e}")
-        print(data)
         return
 
 
@@ -456,12 +466,16 @@ def updateData(data,data_option):
     })
     
     update_ohlc(data,ohlc_1m,ohlc_5m)
+
+    # Save stored_records to temp.json
+    #with open('feed_data.json', 'w') as file:
+        #json.dump(data_option, file, indent=4, default=str)
     
     if previous_volume is None or previous_volume == 0 or  previous_lp is None or  previous_lp == 0:
         logging.info("First message received. Skipping volume and LP comparisons.")
         return
     else:
-        print(delta_v_percent, " > 0.5 |||| " ,delta_lp_percent, " > 1", record_time,"======>",data_option['name'],current_lp)
+        #print(delta_v_percent, " > 0.5 |||| " ,delta_lp_percent, " > 1", record_time,"======>",data_option['name'],current_lp)
         if delta_v_percent > 0.5 and delta_v_percent < 10 and delta_lp_percent > 1 and delta_lp_percent < 20 and previous_lp > 75:
             placeOrder(data,f'condition_1 => {delta_v_percent} > 0.5 and {delta_lp_percent} > 1',data_option["name"])
         else: 
