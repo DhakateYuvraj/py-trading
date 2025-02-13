@@ -6,14 +6,12 @@ import hashlib
 import json
 import pandas as pd
 import os
-import websocket
-import time
 import numpy as np
 from collections import deque
-from datetime import datetime, timedelta, timezone
 from datetime import datetime, timedelta
 import threading
 import functools
+import certifi
 
 time_window = timedelta(minutes=30)
 
@@ -82,7 +80,7 @@ async def shoonya_get_tp_series_async(session, token, intrv='1'):
     try:
         async with session.post(TPSERIES_URL, data=form_data, timeout=timeout) as response:
             response_text = await response.text()  # Read response as text (for debugging)
-            print("Response:", response_text)
+            #print("Response:", response_text)
             return json.loads(response_text)  # Convert back to JSON
     except asyncio.TimeoutError:
         print("❌ Request timed out after 30 seconds")
@@ -93,7 +91,7 @@ async def shoonya_get_tp_series_async(session, token, intrv='1'):
 
 async def fetch_all_data_async(data_ce, data_pe):
     """Fetch both 1-min and 5-min data for CE and PE asynchronously"""
-    print("fetch_all_data_async", datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    # print("fetch_all_data_async", datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 
     async with aiohttp.ClientSession() as session:
         # Fetch 1-minute data for CE & PE
@@ -150,7 +148,7 @@ def shoonya_get_order_book():
     }
     susertoken, _, _  = read_token_from_file()
     form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
-    response = requests.post(ORDER_BOOK_URL, data=form_data)
+    response = requests.post(ORDER_BOOK_URL, data=form_data, verify=certifi.where())
     return response.json()
 
 def shoonya_get_trade_book():
@@ -160,7 +158,7 @@ def shoonya_get_trade_book():
     }
     susertoken, _, _  = read_token_from_file()
     form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
-    response = requests.post(TRADE_BOOK_URL, data=form_data)
+    response = requests.post(TRADE_BOOK_URL, data=form_data, verify=certifi.where())
     return response.json()
 
 def shoonya_place_order(tsym,prc,remarks):
@@ -184,7 +182,7 @@ def shoonya_place_order(tsym,prc,remarks):
     form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
 
     # Send the POST request
-    response = requests.post(PLACE_ORDER_URL, data=form_data)
+    response = requests.post(PLACE_ORDER_URL, data=form_data, verify=certifi.where())
 
     # Print the response
     print(response.json())
@@ -278,6 +276,8 @@ def calculate_tsym(symbol, latest_price, strike_interval=50):
         expiry_date = get_expiry_date(symbol)
 
     # Format the expiry date as DDMMMYY (e.g., 30JAN25)
+    print('expiry_date',expiry_date)
+    expiry_date = datetime.strptime(expiry_date, "%d%b%y")
     expiry_str = expiry_date.strftime("%d%b%y").upper()
 
     # Construct the tsym
@@ -318,7 +318,7 @@ def read_token_from_file():
     except json.JSONDecodeError:
         print("Error decoding the token file.")
         return None, None, None
-    
+
 def is_order_already_open(trade_book, tsym_to_check):
     try:
         # Ensure trade_book is a list
@@ -365,17 +365,49 @@ def placeOrder(data,comment,tsym):
     except Exception as e:
         print(f"Error saving order: {e}")
 
-def update_ohlc(data,ohlc_1m,ohlc_5m):
-    #print('data',data)
-    # Convert Unix timestamp to datetime
+def calculate_atr(highs, lows, closes, period=14):
+    tr = np.maximum(highs - lows, np.maximum(abs(highs - closes.shift(1)), abs(lows - closes.shift(1))))
+    return tr.rolling(window=period).mean()
+
+def calculate_supertrend(highs, lows, closes, period=10, multiplier=3):
+    atr = calculate_atr(highs, lows, closes, period)
+    hl2 = (highs + lows) / 2
+    upper_band = hl2 + (multiplier * atr)
+    lower_band = hl2 - (multiplier * atr)
+
+    supertrend = np.zeros_like(closes)
+    trend = np.ones_like(closes)
+
+    for i in range(1, len(closes)):
+        if closes[i] > upper_band[i - 1]:
+            trend[i] = 1
+        elif closes[i] < lower_band[i - 1]:
+            trend[i] = -1
+        else:
+            trend[i] = trend[i - 1]
+
+        if trend[i] == 1:
+            supertrend[i] = lower_band[i]
+        else:
+            supertrend[i] = upper_band[i]
+
+    return supertrend, trend
+
+def calculate_rsi(closes, period=14):
+    delta = closes.diff()
+    gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
+    loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
+
+    rs = gain / loss
+    rsi = 100 - (100 / (1 + rs))
+    return rsi
+
+def update_ohlc(data, ohlc_1m, ohlc_5m):
     timestamp = int(data["ft"])
     dt = datetime.fromtimestamp(timestamp)
-    
-    # Extract minute and 5-minute bucket
-    minute_key = dt.strftime("%Y-%m-%d %H:%M")  # Example: "2025-01-30 12:25"
-    five_min_key = dt.strftime("%Y-%m-%d %H:") + str((dt.minute // 5) * 5).zfill(2)  # Example: "2025-01-30 12:25"
 
-    # Convert price to float
+    minute_key = dt.strftime("%Y-%m-%d %H:%M")
+    five_min_key = dt.strftime("%Y-%m-%d %H:") + str((dt.minute // 5) * 5).zfill(2)
     lp = float(data.get('lp', data.get('sp1', 0)))
 
     # Update 1-minute OHLC
@@ -394,26 +426,32 @@ def update_ohlc(data,ohlc_1m,ohlc_5m):
         ohlc_5m[five_min_key]["low"] = min(ohlc_5m[five_min_key]["low"], lp)
         ohlc_5m[five_min_key]["close"] = lp
 
-    # Calculate 20-period Moving Average and Standard Deviation for 5-minute data
-    close_prices = [candle["close"] for candle in ohlc_5m.values()]
-    if len(close_prices) >= 20:  # Ensure we have enough data points
-        ma = np.mean(close_prices[-20:])  # Last 20 periods
-        sd = np.std(close_prices[-20:])   # Standard deviation of last 20 periods
+    # Convert OHLC data into DataFrame
+    df = pd.DataFrame.from_dict(ohlc_5m, orient="index").sort_index()
+    df["close"] = df["close"].astype(float)
+    df["high"] = df["high"].astype(float)
+    df["low"] = df["low"].astype(float)
 
-        # Calculate Bollinger Bands
-        upper_band = ma + 2 * sd
-        lower_band = ma - 2 * sd
+    if len(df) >= 20:
+        # Calculate RSI
+        df["RSI"] = calculate_rsi(df["close"])
 
-        # Generate signals
-        current_close = lp
-        if current_close > upper_band:
-            logging.info(f"Overbought Signal at {five_min_key}: Price = {current_close}, Upper Band = {upper_band}")
-            # Place sell order or short position
-            placeOrder(data, f"Overbought: Price crossed Upper Band ({upper_band})", data["tk"])    #SELL
-        elif current_close < lower_band:
-            logging.info(f"Oversold Signal at {five_min_key}: Price = {current_close}, Lower Band = {lower_band}")
-            # Place buy order or long position
-            placeOrder(data, f"Oversold: Price crossed Lower Band ({lower_band})", data["tk"])      #BUY
+        # Calculate Supertrend
+        df["Supertrend"], df["Trend"] = calculate_supertrend(df["high"], df["low"], df["close"])
+
+        latest_rsi = df["RSI"].iloc[-1]
+        latest_trend = df["Trend"].iloc[-1]
+        latest_price = df["close"].iloc[-1]
+
+        # Buy Signal: Price above Supertrend and RSI < 30
+        if latest_trend == 1 and latest_rsi < 30 and ohlc_5m[five_min_key]["close"] > ohlc_5m[five_min_key]["open"]:
+            logging.info(f"BUY Signal at {five_min_key}: RSI={latest_rsi}, Price={latest_price}")
+            placeOrder(data, f"BUY Signal: Supertrend Bullish & RSI Oversold ({latest_rsi})", data["tk"])
+
+        # Sell Signal: Price below Supertrend and RSI > 70
+        elif latest_trend == -1 and latest_rsi > 70 and ohlc_5m[five_min_key]["close"] < ohlc_5m[five_min_key]["open"]:
+            logging.info(f"SELL Signal at {five_min_key}: RSI={latest_rsi}, Price={latest_price}")
+            placeOrder(data, f"SELL Signal: Supertrend Bearish & RSI Overbought ({latest_rsi})", data["tk"])
 
 def updateData(data,data_option):
     stored_records = data_option['data']

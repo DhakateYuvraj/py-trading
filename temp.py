@@ -8,6 +8,7 @@ import websocket
 from collections import deque
 from datetime import datetime, timedelta, timezone
 from util import calculate_tsym, convert_datetime, check_token_file_exists, sha256_encode, handleData, read_token_from_file, save_token_to_file, fetch_data, CONFIG
+import certifi
 
 latest_records = deque()
 data_ce={}
@@ -132,9 +133,8 @@ def get_token_for_tsym(tsym, susertoken, exchange="NFO"):
         "exch": exchange,  # Exchange (NFO for options)
     }
     form_data = "jData="+ json.dumps(jData)+"&jKey="+susertoken
-
     try:
-        response = requests.post(SEARCH_SCRIP_URL, data=form_data)
+        response = requests.post(SEARCH_SCRIP_URL, data=form_data, verify=certifi.where())
         response.raise_for_status()
         data = response.json()
         if data.get("stat") == "Ok":
@@ -172,7 +172,7 @@ def login():
     payload = f'jData={json.dumps(jData)}' # Convert dictionary to raw text format
 
     try:
-        response = requests.post(LOGIN_URL, data=payload, timeout=10)
+        response = requests.post(LOGIN_URL, data=payload, timeout=10, verify=certifi.where())
         response.raise_for_status()  # Raise error for bad status codes
         data = response.json()
         if data.get("stat") == "Ok":
@@ -209,7 +209,7 @@ def get_market_data(token,exch,susertoken):
 
     # Sending the POST request
     try:
-        response = requests.post(GET_QUOTES_URL, data=data)
+        response = requests.post(GET_QUOTES_URL, data=data, verify=certifi.where())
         response.raise_for_status()  # Raise error for bad status codes
         return response.json()  # Return the response JSON if successful
     except requests.exceptions.RequestException as e:
@@ -286,8 +286,6 @@ if __name__ == "__main__":
             #asyncio.run(startApp(data_ce, data_pe, token_ce, token_pe))
             fetch_data(data_ce,data_pe)
             print(f'NFO|{token_ce}#NFO|{token_pe}')
-            #MCX|443491
-            #start_websocket("MCX|443491")
             start_websocket(f'NFO|{token_ce}#NFO|{token_pe}')
         else:
             print("Failed to retrieve market data.")
