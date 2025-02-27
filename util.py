@@ -116,6 +116,7 @@ async def fetch_all_data_async(data_ce, data_pe):
     data_pe["ohlc_1m_api"] = results[1]
 
     #print("CE 1m Data:", results[0])
+    #print('data_ce==========================================================================================',data_ce,'==========================================================================================')
     #print("PE 1m Data:", results[1])
 
     # If we fetched 5-minute data, store it as well
@@ -124,6 +125,13 @@ async def fetch_all_data_async(data_ce, data_pe):
         data_pe["ohlc_5m_api"] = results[3]
         #print("CE 5m Data:", results[2])
         #print("PE 5m Data:", results[3])
+        #print('data_ce==========================================================================================',data_ce,'==========================================================================================')
+    
+    '''
+    with open('testing.txt', 'w') as file:
+        json.dump(data_ce, file, default=convert_datetime, indent=4)
+    with open('testing_results.txt', 'w') as file:
+        json.dump(results, file, default=convert_datetime, indent=4)'''
 
 def fetch_data(data_ce, data_pe):
     """Wrapper to run the async function inside the same event loop"""
@@ -277,7 +285,7 @@ def calculate_tsym(symbol, latest_price, strike_interval=50):
 
     # Format the expiry date as DDMMMYY (e.g., 30JAN25)
     print('expiry_date',expiry_date)
-    expiry_date = datetime.strptime(expiry_date, "%d%b%y")
+    #expiry_date = datetime.strptime(expiry_date, "%d%b%y")
     expiry_str = expiry_date.strftime("%d%b%y").upper()
 
     # Construct the tsym
@@ -455,7 +463,7 @@ def update_ohlc(data, ohlc_1m, ohlc_5m):
 
 def updateData(data,data_option):
     stored_records = data_option['data']
-    #print(data_option)
+    #print(data_option,'==========',data)
     ohlc_1m = data_option['ohlc_1m']
     ohlc_5m = data_option['ohlc_5m']
 

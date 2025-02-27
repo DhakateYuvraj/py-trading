@@ -1,0 +1,9 @@
+{
+    "name": "CRUDEOIL19FEB25",
+    "token": "438576",
+    "ohlc_1m": {},
+    "ohlc_5m": {},
+    "ohlc_1m_api": null,
+    "ohlc_5m_api": null,
+    "data": []
+}

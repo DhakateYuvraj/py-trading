@@ -137,6 +137,7 @@ def get_token_for_tsym(tsym, susertoken, exchange="NFO"):
         response = requests.post(SEARCH_SCRIP_URL, data=form_data, verify=certifi.where())
         response.raise_for_status()
         data = response.json()
+        print(data)
         if data.get("stat") == "Ok":
             # Find the exact match for the tsym
             for item in data["values"]:
@@ -170,9 +171,9 @@ def login():
         "vc": CONFIG["vendor_code"],
     }
     payload = f'jData={json.dumps(jData)}' # Convert dictionary to raw text format
-
+    print('payload',payload)
     try:
-        response = requests.post(LOGIN_URL, data=payload, timeout=10, verify=certifi.where())
+        response = requests.post(LOGIN_URL, data=payload)
         response.raise_for_status()  # Raise error for bad status codes
         data = response.json()
         if data.get("stat") == "Ok":
@@ -216,13 +217,6 @@ def get_market_data(token,exch,susertoken):
         print(f"Error fetching market data: {e}")
         return None
 
-async def startApp(data_ce, data_pe, token_ce, token_pe):
-    await asyncio.gather(
-        fetch_data(data_ce, data_pe),
-        start_websocket(f'NFO|{token_ce}#NFO|{token_pe}')
-    )
-
-
 # Main function
 if __name__ == "__main__":
     # Display options
@@ -262,6 +256,7 @@ if __name__ == "__main__":
             market_data_lp = str(market_data.get('lp', market_data.get('sp1', 0)))
             print(market_data['tsym'] + ' => ' + market_data_lp)
             tsym = calculate_tsym(selected_option["value"], market_data_lp,selected_option["strike_interval"])
+            print('tsym',tsym)
             token_ce = get_token_for_tsym(tsym[0],susertoken)
             token_pe = get_token_for_tsym(tsym[1],susertoken)
             data_ce = {
@@ -269,8 +264,8 @@ if __name__ == "__main__":
                 "token":token_ce,
                 "ohlc_1m" : {},
                 "ohlc_5m" : {},
-                "ohlc_1m_api" : {},
-                "ohlc_5m_api" : {},
+                "ohlc_1m_api" : [],
+                "ohlc_5m_api" : [],
                 "data":[]
             }
             data_pe = {
@@ -278,12 +273,11 @@ if __name__ == "__main__":
                 "token":token_pe,
                 "ohlc_1m" : {},
                 "ohlc_5m" : {},
-                "ohlc_1m_api" : {},
-                "ohlc_5m_api" : {},
+                "ohlc_1m_api" : [],
+                "ohlc_5m_api" : [],
                 "data":[]
             }
-            print(tsym,token_ce,token_pe)
-            #asyncio.run(startApp(data_ce, data_pe, token_ce, token_pe))
+            #print(tsym,token_ce,token_pe)
             fetch_data(data_ce,data_pe)
             print(f'NFO|{token_ce}#NFO|{token_pe}')
             start_websocket(f'NFO|{token_ce}#NFO|{token_pe}')
