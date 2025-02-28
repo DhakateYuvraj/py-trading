@@ -1,0 +1,101 @@
+Condition 1: Volatility Contraction + Breakout Fade (Sell Premium)
+
+Setup:
+
+5min Bollinger Bands (20,2): Price breaks above upper band OR below lower band.
+1min Volume: Spike ≥ 2x 5-period average during breakout.
+3min RSI(14): >70 (for upside breakout) or <30 (for downside).
+5min Close: Rejects breakout (closes back inside Bollinger Band).
+Action:
+
+Sell ATM call/put credit spread (15-30 delta) with 10-15min expiration.
+Edge: False breakouts with high volume often reverse; volatility crush post-breakout.
+Condition 2: Volume-Driven Momentum (Buy Directional)
+
+Setup:
+
+3min Candle: Closes >1.5x ATR(14) from prior close (strong trend).
+1min Volume: Sustained increase (3 consecutive bars ≥ 1.8x 20-period avg).
+5min MACD: Bullish crossover (for calls) or bearish (for puts).
+Action:
+
+Buy ITM call/put (70-80 delta) with 30-60min expiration.
+Edge: High volume + ATR expansion signals continuation; ITM options reduce gamma risk.
+Condition 3: Mean Reversion via RSI Divergence (Sell Premium)
+
+Setup:
+
+5min RSI(14): >75 (bearish) or <25 (bullish).
+1min Price Action: New high/low, but RSI(14) fails to confirm (divergence).
+3min Volume: Declining during the divergence (weak follow-through).
+Action:
+
+Sell OTM iron condor (10-15 delta wings) expiring in 1-2hrs.
+Edge: Overextended moves with divergence + low volume often revert.
+Condition 4: Gamma Scalping on Support/Resistance
+
+Setup:
+
+5min Chart: Price bounces 3+ times off a level (e.g., $100) in the past 2hrs.
+1min Close: Touches level again with volume <0.8x 20-period avg.
+3min Stochastic(14,3): Overbought (>80) or oversold (<20).
+Action:
+
+Sell ATM straddle (delta-neutral) with 30-45min expiration.
+Edge: Weak-volume retests of strong S/R rarely break through; theta decay accelerates.
+Key Backtesting Parameters:
+
+Filters: Only trade between 10:00 AM – 2:30 PM (avoid open/close noise).
+Profit Target/Stop Loss: 25% profit or 100% loss (adjust via Kelly Criterion).
+Validation: Test on 3+ months of data; look for Sharpe Ratio >1.5.
+
+
+
+/ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+/ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+
+
+1. Warmup and Cooldown Rules
+Warmup Period:
+The algo waits for a few minutes (3 minutes as set by STARTING_WARMUP_PERIOD) after it starts before looking for any trade signals.
+Cooldown Period:
+It also checks that at least 5 minutes (min_holding_period) have passed since the last signal for the same token to avoid trading too frequently.
+2. Breakout Strategy Conditions
+This strategy checks 7 conditions (one of which is effectively repeated) before signaling a breakout trade:
+
+RSI Data Available:
+It first confirms that the three-minute data contains an RSI value.
+RSI Within a Neutral Range:
+The current RSI must be between 30 and 70 (i.e., not in an overbought or oversold zone).
+Sufficient One-Minute Data:
+There must be at least 15 one-minute candles available to assess recent price behavior.
+Price Consolidation Check:
+It calculates the price range (difference between the highest high and the lowest low over the last 15 one-minute candles) relative to the average close price. If this fluctuation is more than 0.5% (0.005 when expressed as a fraction), the market is not considered consolidated, and the condition fails.
+Volume Surge Condition:
+The volume of the latest one-minute candle must be at least 1.5 times the average volume over the consolidation period. This surge in volume is seen as a sign of an impending breakout.
+Price Above VWAP:
+The three-minute close price must be above the VWAP (Volume Weighted Average Price). This suggests that buyers are in control.
+RSI Check (Again):
+The RSI is checked once more to ensure it’s still within the neutral range (between 30 and 70). This is essentially a safeguard.
+3. Mean Reversion Strategy Conditions
+This strategy relies on moving average crossovers and requires 2 key conditions (after ensuring enough data is available):
+
+Enough Historical Data:
+There must be at least 50 candles available to perform a meaningful moving average calculation.
+EMA Crossover:
+It looks at the 20-period and 50-period Exponential Moving Averages (EMAs):
+Buy Signal: If the 20-EMA has just crossed from above to below the 50-EMA (i.e., in the previous candle 20-EMA was above 50-EMA but now it is below).
+Sell Signal: If the 20-EMA has just crossed from below to above the 50-EMA.
+4. Trade Exit Logic
+If a position is already open, the algorithm also checks whether the new signal indicates a reversal relative to the current position. For example, if you are in a “LONG” position and a signal comes in suggesting a “SHORT” (or a “SELL” signal in the mean reversion strategy), it triggers an exit from the current trade.
+
+In Summary
+Breakout Strategy: Checks 7 conditions (RSI availability, RSI level, data length, consolidation range, volume surge, price above VWAP, and a repeated RSI check) before signaling a breakout trade.
+Mean Reversion Strategy: Requires enough data (at least 50 candles) and then checks for a clear EMA crossover to signal a reversal trade (either BUY or SELL).
+Additional Timing Checks: A warmup period at the start and a cooldown period between trades ensure signals aren’t generated too early or too frequently.
+This layered approach helps the algorithm be cautious about entering trades only when several market conditions line up, reducing the chance of false signals.
+/ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+/ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 

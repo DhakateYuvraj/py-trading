@@ -1,0 +1,512 @@
+2025-02-28 09:29:31,178 - ERROR - Data fetch error: 
+2025-02-28 09:29:31,179 - ERROR - Data fetch error: 
+2025-02-28 09:30:02,177 - ERROR - Data fetch error: 
+2025-02-28 09:30:02,177 - ERROR - Data fetch error: 
+2025-02-28 09:30:24,937 - ERROR - Trading cycle error: If using all scalar values, you must pass an index
+2025-02-28 09:30:25,262 - ERROR - Trading cycle error: If using all scalar values, you must pass an index
+2025-02-28 09:31:07,796 - ERROR - Trading cycle error: If using all scalar values, you must pass an index
+2025-02-28 09:31:07,803 - ERROR - Trading cycle error: If using all scalar values, you must pass an index
+2025-02-28 09:32:00,924 - ERROR - Trading cycle error: If using all scalar values, you must pass an index
+2025-02-28 09:32:00,942 - ERROR - Trading cycle error: If using all scalar values, you must pass an index
+2025-02-28 09:33:01,022 - ERROR - Trading cycle error: If using all scalar values, you must pass an index
+2025-02-28 09:33:01,022 - ERROR - Trading cycle error: If using all scalar values, you must pass an index
+2025-02-28 09:33:45,317 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:33:45,317 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:33:45,317 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:33:45,317 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:34:00,318 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:34:00,318 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:34:00,318 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:34:00,318 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:35:00,318 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:35:00,318 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:35:00,319 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:35:00,319 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:36:00,319 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:36:00,319 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:36:00,319 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:36:00,319 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:36:10,328 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:36:10,329 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:36:10,329 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:36:10,329 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:37:00,329 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:37:00,330 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:37:00,330 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:37:00,330 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:38:00,330 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:38:00,331 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:38:00,331 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:38:00,331 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:39:00,331 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:39:00,331 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:39:00,331 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:39:00,331 - ERROR - Data fetch error: Constructor parameter should be str
+2025-02-28 09:39:26,539 - ERROR - API Error: 401
+2025-02-28 09:39:26,540 - ERROR - API Error: 401
+2025-02-28 09:39:26,601 - ERROR - API Error: 401
+2025-02-28 09:39:26,601 - ERROR - API Error: 401
+2025-02-28 09:39:44,158 - ERROR - API Error: 401
+2025-02-28 09:39:44,159 - ERROR - API Error: 401
+2025-02-28 09:39:44,201 - ERROR - API Error: 401
+2025-02-28 09:39:44,202 - ERROR - API Error: 401
+2025-02-28 09:40:00,260 - ERROR - API Error: 401
+2025-02-28 09:40:00,262 - ERROR - API Error: 401
+2025-02-28 09:40:00,306 - ERROR - API Error: 401
+2025-02-28 09:40:00,306 - ERROR - API Error: 401
+2025-02-28 09:40:16,701 - ERROR - API Error 1 : 401
+2025-02-28 09:40:16,703 - ERROR - API Error 1 : 401
+2025-02-28 09:40:16,711 - ERROR - API Error 1 : 401
+2025-02-28 09:40:16,713 - ERROR - API Error 1 : 401
+2025-02-28 09:41:01,673 - ERROR - API Error 1 : 401
+2025-02-28 09:41:01,675 - ERROR - API Error 1 : 401
+2025-02-28 09:41:01,685 - ERROR - API Error 1 : 401
+2025-02-28 09:41:01,687 - ERROR - API Error 1 : 401
+2025-02-28 09:41:40,634 - ERROR - API Error 1 : 401
+2025-02-28 09:41:40,635 - ERROR - API Error 1 : 401
+2025-02-28 09:41:40,643 - ERROR - API Error 1 : 401
+2025-02-28 09:41:40,644 - ERROR - API Error 1 : 401
+2025-02-28 09:42:00,719 - ERROR - API Error 1 : 401
+2025-02-28 09:42:00,722 - ERROR - API Error 1 : 401
+2025-02-28 09:42:00,727 - ERROR - API Error 1 : 401
+2025-02-28 09:42:00,729 - ERROR - API Error 1 : 401
+2025-02-28 09:43:00,790 - ERROR - API Error 1 : 401
+2025-02-28 09:43:00,791 - ERROR - API Error 1 : 401
+2025-02-28 09:43:00,798 - ERROR - API Error 1 : 401
+2025-02-28 09:43:00,799 - ERROR - API Error 1 : 401
+2025-02-28 09:43:45,149 - ERROR - API Error 1 : 401
+2025-02-28 09:43:45,150 - ERROR - API Error 1 : 401
+2025-02-28 09:43:45,158 - ERROR - API Error 1 : 401
+2025-02-28 09:43:45,159 - ERROR - API Error 1 : 401
+2025-02-28 09:44:00,136 - ERROR - API Error 1 : 401
+2025-02-28 09:44:00,138 - ERROR - API Error 1 : 401
+2025-02-28 09:44:00,149 - ERROR - API Error 1 : 401
+2025-02-28 09:44:00,150 - ERROR - API Error 1 : 401
+2025-02-28 09:46:12,774 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26000', 'st': '1740356172', 'et': '1740716172', 'intrv': '1'}
+2025-02-28 09:46:12,775 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26009', 'st': '1740356172', 'et': '1740716172', 'intrv': '1'}
+2025-02-28 09:46:12,935 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26000', 'st': '1740356172', 'et': '1740716172', 'intrv': '3'}
+2025-02-28 09:46:12,948 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26009', 'st': '1740356172', 'et': '1740716172', 'intrv': '3'}
+2025-02-28 09:46:12,997 - ERROR - Trading cycle error: 'rsi'
+2025-02-28 09:46:13,019 - ERROR - Trading cycle error: 'rsi'
+2025-02-28 09:47:00,019 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26000', 'st': '1740356220', 'et': '1740716220', 'intrv': '1'}
+2025-02-28 09:47:00,020 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26009', 'st': '1740356220', 'et': '1740716220', 'intrv': '1'}
+2025-02-28 09:47:00,188 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26009', 'st': '1740356220', 'et': '1740716220', 'intrv': '3'}
+2025-02-28 09:47:00,198 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26000', 'st': '1740356220', 'et': '1740716220', 'intrv': '3'}
+2025-02-28 09:47:00,291 - ERROR - Trading cycle error: 'rsi'
+2025-02-28 09:47:00,344 - ERROR - Trading cycle error: 'rsi'
+2025-02-28 09:48:00,346 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26000', 'st': '1740356280', 'et': '1740716280', 'intrv': '1'}
+2025-02-28 09:48:00,347 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26009', 'st': '1740356280', 'et': '1740716280', 'intrv': '1'}
+2025-02-28 09:48:00,536 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26009', 'st': '1740356280', 'et': '1740716280', 'intrv': '3'}
+2025-02-28 09:48:00,541 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26000', 'st': '1740356280', 'et': '1740716280', 'intrv': '3'}
+2025-02-28 09:48:00,600 - ERROR - Trading cycle error: 'rsi'
+2025-02-28 09:48:00,624 - ERROR - Trading cycle error: 'rsi'
+2025-02-28 09:49:00,624 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26000', 'st': '1740356340', 'et': '1740716340', 'intrv': '1'}
+2025-02-28 09:49:00,625 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26009', 'st': '1740356340', 'et': '1740716340', 'intrv': '1'}
+2025-02-28 09:49:00,854 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26009', 'st': '1740356340', 'et': '1740716340', 'intrv': '3'}
+2025-02-28 09:49:00,877 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26000', 'st': '1740356340', 'et': '1740716340', 'intrv': '3'}
+2025-02-28 09:49:00,939 - ERROR - Trading cycle error: 'rsi'
+2025-02-28 09:49:00,993 - ERROR - Trading cycle error: 'rsi'
+2025-02-28 09:49:55,875 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26000', 'st': '1740356395', 'et': '1740716395', 'intrv': '1'}
+2025-02-28 09:49:55,876 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26009', 'st': '1740356395', 'et': '1740716395', 'intrv': '1'}
+2025-02-28 09:49:57,082 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26000', 'st': '1740356397', 'et': '1740716397', 'intrv': '3'}
+2025-02-28 09:49:57,156 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26009', 'st': '1740356397', 'et': '1740716397', 'intrv': '3'}
+2025-02-28 09:50:00,215 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26000', 'st': '1740356400', 'et': '1740716400', 'intrv': '1'}
+2025-02-28 09:50:00,216 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26009', 'st': '1740356400', 'et': '1740716400', 'intrv': '1'}
+2025-02-28 09:50:00,306 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26009', 'st': '1740356400', 'et': '1740716400', 'intrv': '3'}
+2025-02-28 09:50:00,369 - INFO - Fetching data with parameters: {'uid': 'FN105570', 'exch': 'NSE', 'token': '26000', 'st': '1740356400', 'et': '1740716400', 'intrv': '3'}
+2025-02-28 09:53:00,822 - WARNING - No valid strike found
+2025-02-28 09:54:01,259 - WARNING - No valid strike found
+2025-02-28 09:55:01,069 - WARNING - No valid strike found
+2025-02-28 09:56:00,354 - WARNING - No valid strike found
+2025-02-28 09:58:30,974 - ERROR - Data fetch error: 
+2025-02-28 09:59:01,175 - WARNING - No valid strike found
+2025-02-28 09:59:19,527 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 09:59:19,536 - WARNING - No valid strike found
+2025-02-28 10:00:01,196 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:00:01,209 - WARNING - No valid strike found
+2025-02-28 10:01:00,488 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:01:00,500 - WARNING - No valid strike found
+2025-02-28 10:02:00,815 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:02:00,827 - WARNING - No valid strike found
+2025-02-28 10:03:01,146 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:03:01,155 - WARNING - No valid strike found
+2025-02-28 10:04:00,429 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:04:00,439 - WARNING - No valid strike found
+2025-02-28 10:05:00,698 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:05:00,710 - WARNING - No valid strike found
+2025-02-28 10:06:01,226 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:06:01,236 - WARNING - No valid strike found
+2025-02-28 10:07:00,493 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:07:00,505 - WARNING - No valid strike found
+2025-02-28 10:08:00,754 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:08:00,765 - WARNING - No valid strike found
+2025-02-28 10:09:01,005 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:09:01,016 - WARNING - No valid strike found
+2025-02-28 10:10:01,100 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:10:01,111 - WARNING - No valid strike found
+2025-02-28 10:11:00,158 - ERROR - Data fetch error: Cannot connect to host api.shoonya.com:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)')]
+2025-02-28 10:11:00,159 - ERROR - Data fetch error: Cannot connect to host api.shoonya.com:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)')]
+2025-02-28 10:11:00,179 - ERROR - Data fetch error: Cannot connect to host api.shoonya.com:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)')]
+2025-02-28 10:11:00,179 - ERROR - Data fetch error: Cannot connect to host api.shoonya.com:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)')]
+2025-02-28 10:12:00,498 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:12:00,512 - WARNING - No valid strike found
+2025-02-28 10:13:00,820 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:13:00,832 - WARNING - No valid strike found
+2025-02-28 10:14:01,260 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:14:01,284 - WARNING - No valid strike found
+2025-02-28 10:15:01,581 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:15:01,593 - WARNING - No valid strike found
+2025-02-28 10:15:01,628 - INFO - BREAKOUT signal detected for 26000
+2025-02-28 10:15:01,634 - WARNING - No valid strike found
+2025-02-28 10:16:00,892 - INFO - BREAKOUT signal detected for 26000
+2025-02-28 10:16:00,898 - WARNING - No valid strike found
+2025-02-28 10:16:00,983 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:16:00,994 - WARNING - No valid strike found
+2025-02-28 10:17:01,282 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:17:01,290 - WARNING - No valid strike found
+2025-02-28 10:17:01,327 - INFO - BREAKOUT signal detected for 26000
+2025-02-28 10:17:01,334 - WARNING - No valid strike found
+2025-02-28 10:18:00,685 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:18:00,695 - WARNING - No valid strike found
+2025-02-28 10:18:01,747 - INFO - BREAKOUT signal detected for 26000
+2025-02-28 10:18:01,754 - WARNING - No valid strike found
+2025-02-28 10:19:00,988 - INFO - BREAKOUT signal detected for 26000
+2025-02-28 10:19:00,994 - WARNING - No valid strike found
+2025-02-28 10:19:01,029 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:19:01,041 - WARNING - No valid strike found
+2025-02-28 10:20:01,018 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:20:01,031 - WARNING - No valid strike found
+2025-02-28 10:20:01,061 - INFO - BREAKOUT signal detected for 26000
+2025-02-28 10:20:01,067 - WARNING - No valid strike found
+2025-02-28 10:21:00,697 - INFO - BREAKOUT signal detected for 26000
+2025-02-28 10:21:00,703 - WARNING - No valid strike found
+2025-02-28 10:21:00,735 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:21:00,746 - WARNING - No valid strike found
+2025-02-28 10:22:00,998 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:22:01,010 - WARNING - No valid strike found
+2025-02-28 10:22:01,043 - INFO - BREAKOUT signal detected for 26000
+2025-02-28 10:22:01,050 - WARNING - No valid strike found
+2025-02-28 10:23:00,491 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:23:00,511 - WARNING - No valid strike found
+2025-02-28 10:23:00,564 - INFO - BREAKOUT signal detected for 26000
+2025-02-28 10:23:00,573 - WARNING - No valid strike found
+2025-02-28 10:23:03,795 - ERROR - Trading cycle error: name 'breakout_signal' is not defined
+2025-02-28 10:23:03,795 - ERROR - Trading cycle error: name 'breakout_signal' is not defined
+2025-02-28 10:24:00,794 - ERROR - Trading cycle error: name 'breakout_signal' is not defined
+2025-02-28 10:24:00,795 - ERROR - Trading cycle error: name 'breakout_signal' is not defined
+2025-02-28 10:25:00,838 - ERROR - Trading cycle error: name 'breakout_signal' is not defined
+2025-02-28 10:25:00,839 - ERROR - Trading cycle error: name 'breakout_signal' is not defined
+2025-02-28 10:26:00,842 - ERROR - Trading cycle error: name 'breakout_signal' is not defined
+2025-02-28 10:26:00,842 - ERROR - Trading cycle error: name 'breakout_signal' is not defined
+2025-02-28 10:27:00,843 - ERROR - Trading cycle error: name 'breakout_signal' is not defined
+2025-02-28 10:27:00,844 - ERROR - Trading cycle error: name 'breakout_signal' is not defined
+2025-02-28 10:28:00,844 - ERROR - Trading cycle error: name 'breakout_signal' is not defined
+2025-02-28 10:28:00,844 - ERROR - Trading cycle error: name 'breakout_signal' is not defined
+2025-02-28 10:28:38,509 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:28:38,535 - WARNING - Invalid delta nan for strike 48500
+2025-02-28 10:28:38,585 - INFO - BREAKOUT signal detected for 26000
+2025-02-28 10:28:38,586 - WARNING - Invalid delta nan for strike 22300
+2025-02-28 10:29:00,800 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:29:00,802 - WARNING - Invalid delta nan for strike 48400
+2025-02-28 10:29:00,828 - INFO - BREAKOUT signal detected for 26000
+2025-02-28 10:29:00,829 - WARNING - Invalid delta nan for strike 22300
+2025-02-28 10:30:01,197 - INFO - BREAKOUT signal detected for 26000
+2025-02-28 10:30:01,198 - WARNING - Invalid delta nan for strike 22300
+2025-02-28 10:30:01,241 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:30:01,242 - WARNING - Invalid delta nan for strike 48400
+2025-02-28 10:31:00,543 - INFO - BREAKOUT signal detected for 26000
+2025-02-28 10:31:00,545 - WARNING - Invalid delta nan for strike 22300
+2025-02-28 10:31:00,580 - INFO - BREAKOUT signal detected for 26009
+2025-02-28 10:31:00,582 - WARNING - Invalid delta nan for strike 48400
+2025-02-28 10:31:40,323 - INFO - BREAKOUT SHORT signal detected at 48421.95
+2025-02-28 10:31:40,350 - INFO - BREAKOUT SHORT signal detected at 22272.10
+2025-02-28 10:32:00,579 - INFO - BREAKOUT SHORT signal detected at 48431.60
+2025-02-28 10:32:00,606 - INFO - BREAKOUT SHORT signal detected at 22278.40
+2025-02-28 10:33:08,602 - INFO - BREAKOUT SHORT signal detected at 48431.60
+2025-02-28 10:33:08,734 - INFO - BREAKOUT SHORT signal detected at 22278.40
+2025-02-28 10:34:01,026 - INFO - BREAKOUT SHORT signal detected at 22285.60
+2025-02-28 10:34:01,083 - INFO - BREAKOUT SHORT signal detected at 48447.55
+2025-02-28 10:35:02,234 - INFO - BREAKOUT SHORT signal detected at 22271.25
+2025-02-28 10:35:02,266 - INFO - BREAKOUT SHORT signal detected at 48406.70
+2025-02-28 10:36:00,537 - INFO - BREAKOUT SHORT signal detected at 22276.70
+2025-02-28 10:36:00,587 - INFO - BREAKOUT SHORT signal detected at 48423.65
+2025-02-28 10:37:00,940 - INFO - BREAKOUT SHORT signal detected at 22276.70
+2025-02-28 10:37:01,006 - INFO - BREAKOUT SHORT signal detected at 48423.65
+2025-02-28 10:38:00,283 - INFO - BREAKOUT SHORT signal detected at 48456.55
+2025-02-28 10:38:00,367 - INFO - BREAKOUT SHORT signal detected at 22281.60
+2025-02-28 10:39:00,692 - INFO - BREAKOUT SHORT signal detected at 48468.80
+2025-02-28 10:39:00,819 - INFO - BREAKOUT SHORT signal detected at 22288.70
+2025-02-28 10:40:01,161 - INFO - BREAKOUT SHORT signal detected at 22288.70
+2025-02-28 10:40:01,363 - INFO - BREAKOUT SHORT signal detected at 48468.80
+2025-02-28 10:41:00,654 - INFO - BREAKOUT SHORT signal detected at 22286.20
+2025-02-28 10:41:00,732 - INFO - BREAKOUT SHORT signal detected at 48453.00
+2025-02-28 10:42:01,004 - INFO - BREAKOUT SHORT signal detected at 22295.95
+2025-02-28 10:42:01,115 - INFO - BREAKOUT SHORT signal detected at 48456.60
+2025-02-28 10:43:00,385 - INFO - BREAKOUT SHORT signal detected at 48456.60
+2025-02-28 10:43:00,470 - INFO - BREAKOUT SHORT signal detected at 22295.95
+2025-02-28 10:44:00,748 - INFO - BREAKOUT SHORT signal detected at 48448.15
+2025-02-28 10:44:00,798 - INFO - BREAKOUT SHORT signal detected at 22280.75
+2025-02-28 10:45:01,081 - INFO - BREAKOUT SHORT signal detected at 22288.65
+2025-02-28 10:45:01,133 - INFO - BREAKOUT SHORT signal detected at 48473.45
+2025-02-28 10:46:00,435 - INFO - BREAKOUT SHORT signal detected at 22288.65
+2025-02-28 10:46:00,501 - INFO - BREAKOUT SHORT signal detected at 48473.45
+2025-02-28 10:47:00,768 - INFO - BREAKOUT SHORT signal detected at 48468.70
+2025-02-28 10:47:00,865 - INFO - BREAKOUT SHORT signal detected at 22286.95
+2025-02-28 10:48:01,133 - INFO - BREAKOUT SHORT signal detected at 48473.15
+2025-02-28 10:48:01,189 - INFO - BREAKOUT SHORT signal detected at 22280.80
+2025-02-28 10:49:00,544 - INFO - BREAKOUT SHORT signal detected at 22280.80
+2025-02-28 10:49:00,602 - INFO - BREAKOUT SHORT signal detected at 48473.15
+2025-02-28 10:50:01,593 - INFO - BREAKOUT SHORT signal detected at 48427.60
+2025-02-28 10:50:01,831 - INFO - BREAKOUT SHORT signal detected at 22263.25
+2025-02-28 10:51:01,216 - INFO - BREAKOUT SHORT signal detected at 22263.45
+2025-02-28 10:51:01,310 - INFO - BREAKOUT SHORT signal detected at 48426.05
+2025-02-28 10:52:00,605 - INFO - BREAKOUT SHORT signal detected at 22263.45
+2025-02-28 10:52:00,677 - INFO - BREAKOUT SHORT signal detected at 48426.05
+2025-02-28 10:53:01,004 - INFO - BREAKOUT SHORT signal detected at 48404.95
+2025-02-28 10:53:01,097 - INFO - BREAKOUT SHORT signal detected at 22255.95
+2025-02-28 10:54:00,374 - INFO - BREAKOUT SHORT signal detected at 48403.70
+2025-02-28 10:54:00,421 - INFO - BREAKOUT SHORT signal detected at 22251.55
+2025-02-28 10:55:01,061 - INFO - BREAKOUT SHORT signal detected at 48403.70
+2025-02-28 10:55:01,141 - INFO - BREAKOUT SHORT signal detected at 22251.55
+2025-02-28 10:56:00,368 - INFO - BREAKOUT SHORT signal detected at 22257.75
+2025-02-28 10:56:00,444 - INFO - BREAKOUT SHORT signal detected at 48415.35
+2025-02-28 10:57:00,738 - INFO - BREAKOUT SHORT signal detected at 22258.00
+2025-02-28 10:57:00,788 - INFO - BREAKOUT SHORT signal detected at 48422.55
+2025-02-28 10:58:01,090 - INFO - BREAKOUT SHORT signal detected at 22258.00
+2025-02-28 10:58:01,152 - INFO - BREAKOUT SHORT signal detected at 48422.55
+2025-02-28 10:59:00,648 - INFO - BREAKOUT SHORT signal detected at 48366.70
+2025-02-28 10:59:00,706 - INFO - BREAKOUT SHORT signal detected at 22242.55
+2025-02-28 11:00:01,720 - INFO - BREAKOUT SHORT signal detected at 22243.45
+2025-02-28 11:00:01,753 - INFO - BREAKOUT SHORT signal detected at 48386.70
+2025-02-28 11:01:01,020 - INFO - BREAKOUT SHORT signal detected at 22243.45
+2025-02-28 11:01:01,054 - INFO - BREAKOUT SHORT signal detected at 48386.70
+2025-02-28 11:02:00,289 - INFO - BREAKOUT SHORT signal detected at 22252.30
+2025-02-28 11:02:00,322 - INFO - BREAKOUT SHORT signal detected at 48407.35
+2025-02-28 11:03:00,590 - INFO - BREAKOUT SHORT signal detected at 22252.95
+2025-02-28 11:03:00,616 - INFO - BREAKOUT SHORT signal detected at 48422.70
+2025-02-28 11:04:01,022 - INFO - BREAKOUT SHORT signal detected at 48422.70
+2025-02-28 11:04:01,056 - INFO - BREAKOUT SHORT signal detected at 22252.95
+2025-02-28 11:05:00,301 - INFO - BREAKOUT SHORT signal detected at 48444.80
+2025-02-28 11:05:00,333 - INFO - BREAKOUT SHORT signal detected at 22253.85
+2025-02-28 11:06:00,790 - INFO - BREAKOUT SHORT signal detected at 22258.65
+2025-02-28 11:06:00,823 - INFO - BREAKOUT SHORT signal detected at 48465.45
+2025-02-28 11:07:01,060 - INFO - BREAKOUT SHORT signal detected at 48465.45
+2025-02-28 11:07:01,096 - INFO - BREAKOUT SHORT signal detected at 22258.65
+2025-02-28 11:08:19,785 - INFO - BREAKOUT SHORT signal detected at 22254.35
+2025-02-28 11:08:19,909 - INFO - BREAKOUT SHORT signal detected at 48459.60
+2025-02-28 11:09:01,443 - INFO - BREAKOUT SHORT signal detected at 22254.85
+2025-02-28 11:09:01,600 - INFO - BREAKOUT SHORT signal detected at 48483.35
+2025-02-28 11:10:01,000 - INFO - BREAKOUT SHORT signal detected at 48483.35
+2025-02-28 11:10:01,034 - INFO - BREAKOUT SHORT signal detected at 22254.85
+2025-02-28 11:11:00,317 - INFO - BREAKOUT SHORT signal detected at 22258.75
+2025-02-28 11:11:00,349 - INFO - BREAKOUT SHORT signal detected at 48506.50
+2025-02-28 11:12:00,601 - INFO - BREAKOUT SHORT signal detected at 48485.55
+2025-02-28 11:12:00,629 - INFO - BREAKOUT SHORT signal detected at 22248.70
+2025-02-28 11:13:00,871 - INFO - BREAKOUT SHORT signal detected at 22248.70
+2025-02-28 11:13:00,903 - INFO - BREAKOUT SHORT signal detected at 48485.55
+2025-02-28 11:14:01,244 - INFO - BREAKOUT SHORT signal detected at 48500.50
+2025-02-28 11:14:01,279 - INFO - BREAKOUT SHORT signal detected at 22251.95
+2025-02-28 11:15:01,074 - INFO - BREAKOUT SHORT signal detected at 48491.85
+2025-02-28 11:15:01,175 - INFO - BREAKOUT SHORT signal detected at 22246.25
+2025-02-28 11:16:00,450 - INFO - BREAKOUT SHORT signal detected at 48491.85
+2025-02-28 11:16:00,485 - INFO - BREAKOUT SHORT signal detected at 22246.25
+2025-02-28 11:17:00,749 - INFO - BREAKOUT SHORT signal detected at 22250.75
+2025-02-28 11:17:00,783 - INFO - BREAKOUT SHORT signal detected at 48493.05
+2025-02-28 11:18:01,050 - INFO - BREAKOUT SHORT signal detected at 22252.75
+2025-02-28 11:18:01,084 - INFO - BREAKOUT SHORT signal detected at 48499.70
+2025-02-28 11:19:00,382 - INFO - BREAKOUT SHORT signal detected at 48499.70
+2025-02-28 11:19:00,417 - INFO - BREAKOUT SHORT signal detected at 22252.75
+2025-02-28 11:20:00,839 - INFO - BREAKOUT SHORT signal detected at 22247.25
+2025-02-28 11:20:00,875 - INFO - BREAKOUT SHORT signal detected at 48484.25
+2025-02-28 11:21:02,262 - INFO - BREAKOUT SHORT signal detected at 48495.90
+2025-02-28 11:21:02,310 - INFO - BREAKOUT SHORT signal detected at 22245.70
+2025-02-28 11:22:00,542 - INFO - BREAKOUT SHORT signal detected at 22245.70
+2025-02-28 11:22:00,575 - INFO - BREAKOUT SHORT signal detected at 48495.90
+2025-02-28 11:23:00,837 - INFO - BREAKOUT SHORT signal detected at 48490.60
+2025-02-28 11:23:00,884 - INFO - BREAKOUT SHORT signal detected at 22244.85
+2025-02-28 11:24:01,601 - INFO - BREAKOUT SHORT signal detected at 48487.50
+2025-02-28 11:24:01,640 - INFO - BREAKOUT SHORT signal detected at 22243.15
+2025-02-28 11:25:01,161 - INFO - BREAKOUT SHORT signal detected at 22243.15
+2025-02-28 11:25:01,240 - INFO - BREAKOUT SHORT signal detected at 48487.50
+2025-02-28 11:26:00,517 - INFO - BREAKOUT SHORT signal detected at 22242.75
+2025-02-28 11:26:00,581 - INFO - BREAKOUT SHORT signal detected at 48475.80
+2025-02-28 11:27:00,907 - INFO - BREAKOUT SHORT signal detected at 48471.60
+2025-02-28 11:27:01,051 - INFO - BREAKOUT SHORT signal detected at 22242.90
+2025-02-28 11:28:00,314 - INFO - BREAKOUT SHORT signal detected at 48471.60
+2025-02-28 11:28:00,347 - INFO - BREAKOUT SHORT signal detected at 22242.90
+2025-02-28 11:29:00,645 - INFO - BREAKOUT SHORT signal detected at 22255.60
+2025-02-28 11:29:00,684 - INFO - BREAKOUT SHORT signal detected at 48519.80
+2025-02-28 11:30:01,291 - INFO - BREAKOUT SHORT signal detected at 48553.30
+2025-02-28 11:30:01,324 - INFO - BREAKOUT SHORT signal detected at 22259.75
+2025-02-28 11:31:00,719 - INFO - BREAKOUT SHORT signal detected at 22259.75
+2025-02-28 11:31:00,765 - INFO - BREAKOUT SHORT signal detected at 48553.30
+2025-02-28 11:32:01,075 - INFO - BREAKOUT SHORT signal detected at 22276.55
+2025-02-28 11:32:01,111 - INFO - BREAKOUT SHORT signal detected at 48566.35
+2025-02-28 11:33:00,451 - INFO - BREAKOUT SHORT signal detected at 22266.75
+2025-02-28 11:33:00,547 - INFO - BREAKOUT SHORT signal detected at 48559.95
+2025-02-28 11:34:00,888 - INFO - BREAKOUT SHORT signal detected at 22266.75
+2025-02-28 11:34:00,926 - INFO - BREAKOUT SHORT signal detected at 48559.95
+2025-02-28 11:35:01,190 - INFO - BREAKOUT SHORT signal detected at 22253.35
+2025-02-28 11:35:01,240 - INFO - BREAKOUT SHORT signal detected at 48513.50
+2025-02-28 11:36:00,613 - INFO - BREAKOUT SHORT signal detected at 48505.40
+2025-02-28 11:36:00,666 - INFO - BREAKOUT SHORT signal detected at 22253.40
+2025-02-28 11:37:00,996 - INFO - BREAKOUT SHORT signal detected at 22253.40
+2025-02-28 11:37:01,081 - INFO - BREAKOUT SHORT signal detected at 48505.40
+2025-02-28 11:38:00,464 - INFO - BREAKOUT SHORT signal detected at 48506.85
+2025-02-28 11:38:00,606 - INFO - BREAKOUT SHORT signal detected at 22255.40
+2025-02-28 11:39:00,948 - INFO - BREAKOUT SHORT signal detected at 22261.30
+2025-02-28 11:39:01,034 - INFO - BREAKOUT SHORT signal detected at 48516.40
+2025-02-28 11:40:00,555 - INFO - BREAKOUT SHORT signal detected at 22261.30
+2025-02-28 11:40:00,628 - INFO - BREAKOUT SHORT signal detected at 48516.40
+2025-02-28 11:41:02,252 - INFO - BREAKOUT SHORT signal detected at 48522.20
+2025-02-28 11:41:02,363 - INFO - BREAKOUT SHORT signal detected at 22261.10
+2025-02-28 11:42:00,879 - INFO - BREAKOUT SHORT signal detected at 48491.90
+2025-02-28 11:42:00,995 - INFO - BREAKOUT SHORT signal detected at 22252.45
+2025-02-28 11:43:00,367 - INFO - BREAKOUT SHORT signal detected at 22252.45
+2025-02-28 11:43:00,451 - INFO - BREAKOUT SHORT signal detected at 48491.90
+2025-02-28 11:44:00,773 - INFO - BREAKOUT SHORT signal detected at 22243.40
+2025-02-28 11:44:00,870 - INFO - BREAKOUT SHORT signal detected at 48475.40
+2025-02-28 11:45:01,444 - INFO - BREAKOUT SHORT signal detected at 22240.40
+2025-02-28 11:45:01,526 - INFO - BREAKOUT SHORT signal detected at 48469.50
+2025-02-28 11:46:01,032 - INFO - BREAKOUT SHORT signal detected at 22240.40
+2025-02-28 11:46:01,242 - INFO - BREAKOUT SHORT signal detected at 48469.50
+2025-02-28 11:47:00,879 - INFO - BREAKOUT SHORT signal detected at 22237.90
+2025-02-28 11:47:01,140 - INFO - BREAKOUT SHORT signal detected at 48437.35
+2025-02-28 11:48:01,014 - INFO - BREAKOUT SHORT signal detected at 22235.80
+2025-02-28 11:48:01,488 - INFO - BREAKOUT SHORT signal detected at 48442.95
+2025-02-28 11:49:02,071 - INFO - BREAKOUT SHORT signal detected at 22235.80
+2025-02-28 11:49:02,302 - INFO - BREAKOUT SHORT signal detected at 48442.95
+2025-02-28 11:50:00,709 - INFO - BREAKOUT SHORT signal detected at 48414.70
+2025-02-28 11:50:00,796 - INFO - BREAKOUT SHORT signal detected at 22226.30
+2025-02-28 11:51:01,105 - INFO - BREAKOUT SHORT signal detected at 48420.60
+2025-02-28 11:51:01,174 - INFO - BREAKOUT SHORT signal detected at 22225.45
+2025-02-28 11:52:00,629 - INFO - BREAKOUT SHORT signal detected at 48420.60
+2025-02-28 11:52:00,720 - INFO - BREAKOUT SHORT signal detected at 22225.45
+2025-02-28 11:53:01,600 - INFO - BREAKOUT SHORT signal detected at 22229.30
+2025-02-28 11:53:01,816 - INFO - BREAKOUT SHORT signal detected at 48447.55
+2025-02-28 11:54:01,371 - INFO - BREAKOUT SHORT signal detected at 22231.65
+2025-02-28 11:54:01,600 - INFO - BREAKOUT SHORT signal detected at 48455.70
+2025-02-28 11:55:00,997 - INFO - BREAKOUT SHORT signal detected at 22231.65
+2025-02-28 11:55:01,110 - INFO - BREAKOUT SHORT signal detected at 48455.70
+2025-02-28 11:56:00,547 - INFO - BREAKOUT SHORT signal detected at 48461.25
+2025-02-28 11:56:00,663 - INFO - BREAKOUT SHORT signal detected at 22233.30
+2025-02-28 11:57:00,949 - INFO - BREAKOUT SHORT signal detected at 22236.35
+2025-02-28 11:57:01,003 - INFO - BREAKOUT SHORT signal detected at 48468.90
+2025-02-28 11:58:00,301 - INFO - BREAKOUT SHORT signal detected at 48468.90
+2025-02-28 11:58:00,352 - INFO - BREAKOUT SHORT signal detected at 22236.35
+2025-02-28 11:59:00,811 - INFO - BREAKOUT SHORT signal detected at 22242.45
+2025-02-28 11:59:00,882 - INFO - BREAKOUT SHORT signal detected at 48464.80
+2025-02-28 12:00:01,607 - INFO - BREAKOUT SHORT signal detected at 22237.40
+2025-02-28 12:00:01,678 - INFO - BREAKOUT SHORT signal detected at 48454.25
+2025-02-28 12:01:01,075 - INFO - BREAKOUT SHORT signal detected at 48454.25
+2025-02-28 12:01:01,196 - INFO - BREAKOUT SHORT signal detected at 22237.40
+2025-02-28 12:02:00,484 - INFO - BREAKOUT SHORT signal detected at 22237.35
+2025-02-28 12:02:00,564 - INFO - BREAKOUT SHORT signal detected at 48448.35
+2025-02-28 12:03:00,896 - INFO - BREAKOUT SHORT signal detected at 48438.60
+2025-02-28 12:03:00,965 - INFO - BREAKOUT SHORT signal detected at 22231.25
+2025-02-28 12:04:01,436 - INFO - BREAKOUT SHORT signal detected at 48438.60
+2025-02-28 12:04:01,640 - INFO - BREAKOUT SHORT signal detected at 22231.25
+2025-02-28 12:05:01,161 - INFO - BREAKOUT SHORT signal detected at 22226.00
+2025-02-28 12:05:01,304 - INFO - BREAKOUT SHORT signal detected at 48429.20
+2025-02-28 12:06:00,613 - INFO - BREAKOUT SHORT signal detected at 48418.10
+2025-02-28 12:06:00,701 - INFO - BREAKOUT SHORT signal detected at 22223.35
+2025-02-28 12:07:00,969 - INFO - BREAKOUT SHORT signal detected at 22223.35
+2025-02-28 12:07:01,052 - INFO - BREAKOUT SHORT signal detected at 48418.10
+2025-02-28 12:08:00,351 - INFO - BREAKOUT SHORT signal detected at 48418.40
+2025-02-28 12:08:00,413 - INFO - BREAKOUT SHORT signal detected at 22222.20
+2025-02-28 12:09:00,780 - INFO - BREAKOUT SHORT signal detected at 22225.15
+2025-02-28 12:09:00,841 - INFO - BREAKOUT SHORT signal detected at 48435.25
+2025-02-28 12:10:01,431 - INFO - BREAKOUT SHORT signal detected at 48435.25
+2025-02-28 12:10:01,566 - INFO - BREAKOUT SHORT signal detected at 22225.15
+2025-02-28 12:11:00,846 - INFO - BREAKOUT SHORT signal detected at 48429.80
+2025-02-28 12:11:00,968 - INFO - BREAKOUT SHORT signal detected at 22221.35
+2025-02-28 12:12:01,307 - INFO - BREAKOUT SHORT signal detected at 22220.60
+2025-02-28 12:12:01,363 - INFO - BREAKOUT SHORT signal detected at 48417.40
+2025-02-28 12:13:00,651 - INFO - BREAKOUT SHORT signal detected at 48417.40
+2025-02-28 12:13:00,707 - INFO - BREAKOUT SHORT signal detected at 22220.60
+2025-02-28 12:14:01,019 - INFO - BREAKOUT SHORT signal detected at 48424.00
+2025-02-28 12:14:01,074 - INFO - BREAKOUT SHORT signal detected at 22221.75
+2025-02-28 12:15:01,022 - INFO - BREAKOUT SHORT signal detected at 48416.15
+2025-02-28 12:15:01,105 - INFO - BREAKOUT SHORT signal detected at 22222.55
+2025-02-28 12:16:00,471 - INFO - BREAKOUT SHORT signal detected at 48416.15
+2025-02-28 12:16:00,603 - INFO - BREAKOUT SHORT signal detected at 22222.55
+2025-02-28 12:17:00,953 - INFO - BREAKOUT SHORT signal detected at 22229.05
+2025-02-28 12:17:01,043 - INFO - BREAKOUT SHORT signal detected at 48445.10
+2025-02-28 12:18:00,311 - INFO - BREAKOUT SHORT signal detected at 48449.50
+2025-02-28 12:18:00,374 - INFO - BREAKOUT SHORT signal detected at 22231.70
+2025-02-28 12:19:00,673 - INFO - BREAKOUT SHORT signal detected at 22231.70
+2025-02-28 12:19:00,766 - INFO - BREAKOUT SHORT signal detected at 48449.50
+2025-02-28 12:20:01,409 - INFO - BREAKOUT SHORT signal detected at 22241.25
+2025-02-28 12:20:01,461 - INFO - BREAKOUT SHORT signal detected at 48470.25
+2025-02-28 12:21:00,723 - INFO - BREAKOUT SHORT signal detected at 48448.10
+2025-02-28 12:21:00,774 - INFO - BREAKOUT SHORT signal detected at 22238.30
+2025-02-28 12:22:01,044 - INFO - BREAKOUT SHORT signal detected at 48448.10
+2025-02-28 12:22:01,095 - INFO - BREAKOUT SHORT signal detected at 22238.30
+2025-02-28 12:23:00,472 - INFO - BREAKOUT SHORT signal detected at 48465.85
+2025-02-28 12:23:00,520 - INFO - BREAKOUT SHORT signal detected at 22239.55
+2025-02-28 12:24:00,973 - INFO - BREAKOUT SHORT signal detected at 48489.10
+2025-02-28 12:24:01,037 - INFO - BREAKOUT SHORT signal detected at 22248.40
+2025-02-28 12:25:00,804 - INFO - BREAKOUT SHORT signal detected at 48489.10
+2025-02-28 12:25:00,862 - INFO - BREAKOUT SHORT signal detected at 22248.40
+2025-02-28 12:26:01,145 - INFO - BREAKOUT SHORT signal detected at 22245.35
+2025-02-28 12:26:01,221 - INFO - BREAKOUT SHORT signal detected at 48463.30
+2025-02-28 12:27:00,499 - INFO - BREAKOUT SHORT signal detected at 48452.85
+2025-02-28 12:27:00,552 - INFO - BREAKOUT SHORT signal detected at 22242.70
+2025-02-28 16:16:19,373 - INFO - BREAKOUT SHORT signal detected at 48432.30
+2025-02-28 16:16:19,400 - INFO - BREAKOUT SHORT signal detected at 22262.15
+2025-02-28 16:17:00,593 - INFO - BREAKOUT SHORT signal detected at 48451.95
+2025-02-28 16:17:00,621 - INFO - BREAKOUT SHORT signal detected at 22265.50
+2025-02-28 16:18:00,844 - INFO - BREAKOUT SHORT signal detected at 22268.35
+2025-02-28 16:18:00,909 - INFO - BREAKOUT SHORT signal detected at 48411.35
+2025-02-28 16:19:01,210 - INFO - BREAKOUT SHORT signal detected at 22268.35
+2025-02-28 16:19:01,268 - INFO - BREAKOUT SHORT signal detected at 48411.35
+2025-02-28 16:20:00,753 - INFO - BREAKOUT SHORT signal detected at 22286.55
+2025-02-28 16:20:00,780 - INFO - BREAKOUT SHORT signal detected at 48452.55
+2025-02-28 16:21:01,013 - INFO - BREAKOUT SHORT signal detected at 48432.50
+2025-02-28 16:21:01,040 - INFO - BREAKOUT SHORT signal detected at 22278.85
+2025-02-28 16:22:00,282 - INFO - BREAKOUT SHORT signal detected at 48432.50
+2025-02-28 16:22:00,317 - INFO - BREAKOUT SHORT signal detected at 22278.85
+2025-02-28 16:23:00,523 - INFO - BREAKOUT SHORT signal detected at 48439.60
+2025-02-28 16:23:00,555 - INFO - BREAKOUT SHORT signal detected at 22273.50
+2025-02-28 16:24:00,781 - INFO - BREAKOUT SHORT signal detected at 22282.90
+2025-02-28 16:24:01,011 - INFO - BREAKOUT SHORT signal detected at 48454.25
+2025-02-28 16:25:00,456 - INFO - BREAKOUT SHORT signal detected at 22282.90
+2025-02-28 16:25:00,547 - INFO - BREAKOUT SHORT signal detected at 48454.25
+2025-02-28 16:26:00,782 - INFO - BREAKOUT SHORT signal detected at 22283.65
+2025-02-28 16:26:00,861 - INFO - BREAKOUT SHORT signal detected at 48482.60
+2025-02-28 16:27:01,100 - INFO - BREAKOUT SHORT signal detected at 22279.05
+2025-02-28 16:27:01,198 - INFO - BREAKOUT SHORT signal detected at 48461.70
+2025-02-28 16:28:00,387 - INFO - BREAKOUT SHORT signal detected at 48461.70
+2025-02-28 16:28:00,413 - INFO - BREAKOUT SHORT signal detected at 22279.05
+2025-02-28 16:29:00,666 - INFO - BREAKOUT SHORT signal detected at 22276.45
+2025-02-28 16:29:00,693 - INFO - BREAKOUT SHORT signal detected at 48435.50
+2025-02-28 16:30:00,907 - INFO - BREAKOUT SHORT signal detected at 48421.95
+2025-02-28 16:30:00,941 - INFO - BREAKOUT SHORT signal detected at 22272.10
+2025-02-28 16:31:01,175 - INFO - BREAKOUT SHORT signal detected at 48421.95
+2025-02-28 16:31:01,237 - INFO - BREAKOUT SHORT signal detected at 22272.10
+2025-02-28 16:32:00,452 - INFO - BREAKOUT SHORT signal detected at 48431.60
+2025-02-28 16:32:00,478 - INFO - BREAKOUT SHORT signal detected at 22278.40
+2025-02-28 16:33:00,750 - INFO - BREAKOUT SHORT signal detected at 48447.55
+2025-02-28 16:33:00,784 - INFO - BREAKOUT SHORT signal detected at 22285.60
+2025-02-28 16:36:00,768 - INFO - 26000: Skipping cycle - 5 min cooldown
+2025-02-28 16:36:00,769 - INFO - 26009: Skipping cycle - 5 min cooldown
+2025-02-28 16:37:00,769 - INFO - 26000: Skipping cycle - 5 min cooldown
+2025-02-28 16:37:00,770 - INFO - 26009: Skipping cycle - 5 min cooldown
+2025-02-28 16:38:00,770 - INFO - 26000: Skipping cycle - 5 min cooldown
+2025-02-28 16:38:00,770 - INFO - 26009: Skipping cycle - 5 min cooldown
+2025-02-28 16:39:00,771 - INFO - 26000: Skipping cycle - 5 min cooldown
+2025-02-28 16:39:00,771 - INFO - 26009: Skipping cycle - 5 min cooldown
+2025-02-28 16:40:00,772 - INFO - 26000: Skipping cycle - 5 min cooldown
+2025-02-28 16:40:00,772 - INFO - 26009: Skipping cycle - 5 min cooldown
+2025-02-28 17:16:00,375 - INFO - 26000: Skipping cycle - 5 min cooldown
+2025-02-28 17:16:00,376 - INFO - 26009: Skipping cycle - 5 min cooldown
+2025-02-28 17:17:00,484 - INFO - 26000: Skipping cycle - 5 min cooldown
+2025-02-28 17:17:00,484 - INFO - 26009: Skipping cycle - 5 min cooldown
+2025-02-28 17:18:00,486 - INFO - 26000: Skipping cycle - 5 min cooldown
+2025-02-28 17:18:00,487 - INFO - 26009: Skipping cycle - 5 min cooldown
+2025-02-28 17:19:00,487 - INFO - 26000: Skipping cycle - 5 min cooldown
+2025-02-28 17:19:00,487 - INFO - 26009: Skipping cycle - 5 min cooldown
+2025-02-28 17:20:00,489 - INFO - 26000: Skipping cycle - 5 min cooldown
+2025-02-28 17:20:00,489 - INFO - 26009: Skipping cycle - 5 min cooldown
+2025-02-28 17:21:00,491 - INFO - 26000: Skipping cycle - 5 min cooldown
+2025-02-28 17:21:00,491 - INFO - 26009: Skipping cycle - 5 min cooldown
